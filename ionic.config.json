@@ -1,0 +1,8 @@
+{
+  "name": "CardioCALC",
+  "app_id": "45c0ac06",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
