@@ -1,0 +1,93 @@
+<!--
+  Generated template for the ChadsvascPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Score CHA2DS2-VASc</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    
+    <form (ngSubmit)="display();">
+        
+        <ion-list no-lines>
+            
+            <ion-item>
+                <ion-label>Insuffisance cardiaque</ion-label>
+                <button ion-button item-end clear (click)="item_help('Insuffisance cardiaque', 'Antécédent d\'insuffisance cardiaque congestive ou FEVG < 45 %.'); false;">
+                    <ion-icon name='help-circle'></ion-icon>
+                </button>
+                <ion-toggle color="secondary" (ionChange)="hfail_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Hypertension artérielle</ion-label>
+                <ion-toggle color="secondary" (ionChange)="htens_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Age > 65 ans</ion-label>
+                <ion-toggle color="secondary" (ionChange)="age65_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Diabète</ion-label>
+                <ion-toggle color="secondary" (ionChange)="diabetes_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>AVC / embolie systémique</ion-label>
+                <ion-toggle color="secondary" (ionChange)="stroke_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Malade polyvasculaire</ion-label>
+                <ion-toggle color="secondary" (ionChange)="vascular_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Age > 75 ans</ion-label>
+                <ion-toggle color="secondary" (ionChange)="age75_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Sexe féminin</ion-label>
+                <ion-toggle color="secondary" (ionChange)="female_toggle();"></ion-toggle>
+            </ion-item>
+            
+        </ion-list>
+        
+        <button ion-button type="submit">CALCULER</button>
+        
+    </form>
+    
+    <div id="item_description">
+        
+        <p>
+            Le score CHA2DS2-VASc évalue le risque d'embolie artérielle systémique chez un patient en fibrillation atriale non valvulaire.
+        </p>
+        <p id="item_source">
+            Source :
+            <a href="http://dx.doi.org/10.1378/chest.09-1584">
+                Refining Clinical Risk Stratification for Predicting Stroke and Thromboembolism in Atrial Fibrillation Using a Novel Risk Factor-Based Approach.
+                Lip GY, et al. Chest, 2010;137:263–272.
+            </a>
+        </p>
+        <p id="item_source">
+            Stratification du risque :
+            <a href="https://doi.org/10.1093/eurheartj/sun029">
+                Prevention of stroke in patients with atrial fibrillation: current strategies and future directions.
+                Hohnloser S, et al. European Heart Journal Supplements, 2008;10:H4–H10.
+            </a>
+        </p>
+        
+    </div>
+    
+</ion-content>

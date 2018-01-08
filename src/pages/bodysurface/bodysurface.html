@@ -1,0 +1,51 @@
+<!--
+  Generated template for the BodysurfacePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Surface corporelle</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    
+    <form [formGroup]="scoreForm" (ngSubmit)="display();">
+        
+        <ion-list no-lines>
+            
+            <ion-item>
+                <ion-label color="dark">Poids</ion-label>
+                <ion-input type="text" formControlName="weight" placeholder="(kg)" [(ngModel)]="weight"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label color="dark">Taille</ion-label>
+                <ion-input type="text" formControlName="height" placeholder="(cm)" [(ngModel)]="height"></ion-input>
+            </ion-item>
+            
+        </ion-list>
+        
+        <button ion-button type="submit">CALCULER</button>
+        
+    </form>
+    
+    <div id="item_description">
+        <p>
+            Surface corporelle selon la formule de Boyd.
+        </p>
+        <p id="item_source">
+            Source :
+            <a href="https://www.upress.umn.edu/book-division/books/the-growth-of-the-surface-area-of-the-human-body">
+                The growth of the surface area of the human body.
+                Boyd E. University of Minnesota Press, 1935.
+            </a>
+        </p>
+    </div>
+
+</ion-content>

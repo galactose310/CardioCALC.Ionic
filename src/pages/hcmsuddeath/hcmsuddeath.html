@@ -1,0 +1,79 @@
+<!--
+  Generated template for the HcmsuddeathPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>HCM Risk-SCD</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    
+    <form [formGroup]="scoreForm" (ngSubmit)="display();">
+        
+        <ion-list no-lines>
+            
+            <ion-item>
+                <ion-label color="dark">Age</ion-label>
+                <ion-input type="text" formControlName="age" placeholder="(années)" [(ngModel)]="age"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label color="dark">Epaisseur VG</ion-label>
+                <ion-input type="text" formControlName="lvThickness" placeholder="(mm)" [(ngModel)]="lvThickness"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label color="dark">Diamètre OG</ion-label>
+                <ion-input type="text" formControlName="latriumDiam" placeholder="(mm)" [(ngModel)]="latriumDiam"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label color="dark">Gradient intra-VG</ion-label>
+                <ion-input type="text" formControlName="lvgradient" placeholder="(mmHg)" [(ngModel)]="lvgradient"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label color="dark">Mort subite familiale</ion-label>
+                <ion-toggle color="secondary" (ionChange)="suddeath_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label color="dark">TV non soutenue</ion-label>
+                <ion-toggle color="secondary" (ionChange)="nsvt_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label color="dark">Syncope inexpliquée</ion-label>
+                <ion-toggle color="secondary" (ionChange)="syncope_toggle();"></ion-toggle>
+            </ion-item>
+            
+        </ion-list>
+        
+        <button ion-button type="submit">CALCULER</button>
+        
+    </form>
+    
+    <div id="item_description">
+        
+        <p>
+            Le score HCM Risk-SCD évalue le risque de mort subite chez un patient atteint de cardiomyopathie hypertrophique afin d'aider à la décision d'implantation de défibrillateur en prévention primaire. Ne pas utiliser chez les enfants < 16 ans, les athlètes, les CMH associées aux syndromes et maladies métaboliques, ou en prévention secondaire.
+        </p>
+        <p id="item_source">
+            Source :
+            <a href="http://dx.doi.org/10.1093/eurheartj/ehu284">
+                2014 ESC Guidelines on diagnosis and management of hypertrophic cardiomyopathy.
+                Elliott P, et al. European Heart Journal, 2014;35:2733–2779.
+            </a>
+        </p>
+        
+    </div>
+    
+</ion-content>

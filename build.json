@@ -1,0 +1,8 @@
+{
+  "windows": {
+    "release": {
+      "packageCertificateKeyFile": "res\\native\\windows\\CordovaApp.pfx",
+      "publisherId": "CN=701D81B4-F09C-49BE-94D8-572ED6A34C75"
+    }
+  }
+}

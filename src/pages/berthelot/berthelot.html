@@ -1,0 +1,101 @@
+<!--
+  Generated template for the BerthelotPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Score de Berthelot</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    
+    <form [formGroup]="scoreForm" (ngSubmit)="display();">
+        
+        <ion-list no-lines>
+            
+            <ion-item>
+                <ion-label color="dark">Diabète</ion-label>
+                <ion-toggle color="secondary" (ionChange)="diabetes_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label color="dark">Fibrillation atriale</ion-label>
+                <ion-toggle color="secondary" (ionChange)="fibrillation_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label color="dark">Surface OG</ion-label>
+                <ion-input type="text" formControlName="latriumArea" placeholder="(cm²)" [(ngModel)]="latriumArea"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label color="dark">Surface VD</ion-label>
+                <ion-input type="text" formControlName="rventricleArea" placeholder="(cm²)" [(ngModel)]="rventricleArea"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label color="dark">Masse VG connue ?</ion-label>
+                <ion-toggle color="secondary" checked (ionChange)="lvmass_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item *ngIf="!lvmassIsKnown">
+                <ion-label color="dark">Septum</ion-label>
+                <ion-input type="text" formControlName="septum" placeholder="(mm)" [(ngModel)]="septum"></ion-input>
+            </ion-item>
+            
+            <ion-item *ngIf="!lvmassIsKnown">
+                <ion-label color="dark">Diamètre VG</ion-label>
+                <ion-input type="text" formControlName="lvdiam" placeholder="(mm)" [(ngModel)]="lvdiam"></ion-input>
+            </ion-item>
+            
+            <ion-item *ngIf="!lvmassIsKnown">
+                <ion-label color="dark">Paroi postérieure</ion-label>
+                <ion-input type="text" formControlName="lvwall" placeholder="(mm)" [(ngModel)]="lvwall"></ion-input>
+            </ion-item>
+            
+            <ion-item *ngIf="!lvmassIsKnown">
+                <ion-label color="dark">Taille</ion-label>
+                <ion-input type="text" formControlName="height" placeholder="(cm)" [(ngModel)]="height"></ion-input>
+            </ion-item>
+            
+            <ion-item *ngIf="!lvmassIsKnown">
+                <ion-label color="dark">Poids</ion-label>
+                <ion-input type="text" formControlName="weight" placeholder="(kg)" [(ngModel)]="weight"></ion-input>
+            </ion-item>
+            
+            <ion-item *ngIf="lvmassIsKnown">
+                <ion-label color="dark">Masse VG</ion-label>
+                <ion-input type="text" formControlName="lvmass" placeholder="(g/m²)" [(ngModel)]="lvmass"></ion-input>
+            </ion-item>
+        
+        </ion-list>
+        
+        <button ion-button type="submit" [disabled]="!scoreForm.valid">CALCULER</button>
+        
+        <!-- <p id="result_p">Score : {{scoreResult}}</p> -->
+        
+    </form>
+    
+    <div id="item_description">
+        
+        <p>
+            Le score de Berthelot est un outil d'aide à la classification non-invasive des hypertensions pulmonaires.
+            Un score supérieur ou égal à 7 a une spécificité > 95% pour l'appartenance au groupe 2 (insuffisance cardiaque gauche).
+        </p>
+        <p id="item_source">
+            Source :
+            <a href="http://dx.doi.org/10.1016/j.cardfail.2016.10.002">
+                A Clinical and Echocardiographic Score to Identify Pulmonary Hypertension Due to HFpEF.
+                Berthelot E, et al. Journal of Cardiac Failure, 2017;23(1):29-35.
+            </a>
+        </p>
+    </div>
+    
+</ion-content>

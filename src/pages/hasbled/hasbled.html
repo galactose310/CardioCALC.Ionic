@@ -1,0 +1,111 @@
+<!--
+  Generated template for the HasbledPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Score HAS-BLED</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    
+    <form (ngSubmit)="display();">
+        
+        <ion-list no-lines>
+            
+            <ion-item>
+                <ion-label>Hypertension artérielle</ion-label>
+                <button ion-button item-end clear (click)="item_help('Hypertension artérielle', 'HTA non contrôlée, PA systolique > 160 mmHg.'); false;">
+                    <ion-icon name='help-circle'></ion-icon>
+                </button>
+                <ion-toggle color="secondary" (ionChange)="htens_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Insuffisance rénale</ion-label>
+                <button ion-button item-end clear (click)="item_help('Insuffisance rénale', 'Créatininémie > 200 µmol/l ou dialyse ou transplantation rénale.'); false;">
+                    <ion-icon name='help-circle'></ion-icon>
+                </button>
+                <ion-toggle color="secondary" (ionChange)="renal_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Insuffisance hépatique</ion-label>
+                <button ion-button item-end clear (click)="item_help('Insuffisance hépatique', 'Cirrhose ou bilirubinémie > 2x la normale avec ASAT/ALAT/PAL > 3x la normale.'); false;">
+                    <ion-icon name='help-circle'></ion-icon>
+                </button>
+                <ion-toggle color="secondary" (ionChange)="hepatic_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>AVC hémorragique</ion-label>
+                <ion-toggle color="secondary" (ionChange)="stroke_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Saignement majeur</ion-label>
+                <button ion-button item-end clear (click)="item_help('Saignement majeur', 'Antécédent de saignement nécessitant une hospitalisation, une transfusion, ou avec perte d\'hémoglobine > 2 g/dL, hors hémorragie intracrânienne.'); false;">
+                    <ion-icon name='help-circle'></ion-icon>
+                </button>
+                <ion-toggle color="secondary" (ionChange)="bleeding_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>INR labile</ion-label>
+                <ion-toggle color="secondary" (ionChange)="INR_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Age > 65 ans</ion-label>
+                <ion-toggle color="secondary" (ionChange)="age65_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Antiplaquettaires ou AINS</ion-label>
+                <ion-toggle color="secondary" (ionChange)="drugs_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Alcool</ion-label>
+                <button ion-button item-end clear (click)="item_help('Alcool', 'Consommation > 8 verres par semaine.'); false;">
+                    <ion-icon name='help-circle'></ion-icon>
+                </button>
+                <ion-toggle color="secondary" (ionChange)="alcohol_toggle();"></ion-toggle>
+            </ion-item>
+            
+        </ion-list>
+        
+        <button ion-button type="submit">CALCULER</button>
+        
+    </form>
+    
+    <div id="item_description">
+        
+        <p>
+            Le score HAS-BLED évalue le risque d'hémorragie majeure chez un patient sous traitement antithrombotique. Un score > 3 est associé à un risque élevé.
+        </p>
+        <p id="item_source">
+            Source :
+            <a href="https://doi.org/10.1378/chest.10-0134">
+                A novel user-friendly score (HAS-BLED) to assess 1-year risk of major bleeding in patients with atrial fibrillation: the Euro Heart Survey.
+                Pisters R, et al. Chest, 2010;138(5):1093-100.
+            </a>
+        </p>
+        <p id="item_source">
+            Stratification du risque :
+            <a href="https://doi.org/10.1016/j.jacc.2010.09.024">
+                Comparative validation of a novel risk score for predicting bleeding risk in anticoagulated patients with atrial fibrillation.
+                Lip GY, et al. Journal of Am Coll Cardiol, 2011;57(2):173-80.
+            </a>
+        </p>
+        
+    </div>
+    
+</ion-content>
