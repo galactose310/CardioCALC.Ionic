@@ -9,11 +9,11 @@ import { Score } from '../generic/generic';
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-chadsvasc',
-  templateUrl: 'chadsvasc.html',
+  selector: 'page-wells',
+  templateUrl: 'wells.html',
 })
 
-export class ChadsvascPage extends Score {
+export class WellsPage extends Score {
     
     heartFailure: number = 0;
     hypertension: number = 0;
@@ -30,9 +30,7 @@ export class ChadsvascPage extends Score {
         super(alertCtrl);
         this.set_score_name("Score CHA2DS2-VASc");
         
-        this.helpItems = [
-                {item: "heartFailure", title: "Insuffisance cardiaque", desc: "Antécédent d'insuffisance cardiaque congestive ou FEVG < 45 %."}
-            ];
+        this.helpItems.push({item: "HTA", title: "HTA", desc :"HTA non contrôlée"});
     }
     
     // Change value if toggled

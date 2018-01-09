@@ -31,6 +31,16 @@ export class HasbledPage extends Score {
     {
         super(alertCtrl);
         this.set_score_name("Score HAS-BLED");
+        
+        //this.helpItems = [{item: "hypertension", title: "Hypertension artérielle", desc: "HTA non contrôlée, PA systolique > 160 mmHg."}];
+        
+        this.helpItems = [
+            {item: "hypertension", title: "Hypertension artérielle", desc: "HTA non contrôlée, PA systolique > 160 mmHg."},
+            {item: "renalFailure", title: "Insuffisance rénale", desc: "Créatininémie > 200 µmol/l ou dialyse ou transplantation rénale."},
+            {item: "hepaticFailure", title: "Insuffisance hépatique", desc: "Cirrhose ou bilirubinémie > 2x la normale avec ASAT/ALAT/PAL > 3x la normale."},
+            {item: "bleeding", title: "Saignement majeur", desc: "Antécédent de saignement nécessitant une hospitalisation, une transfusion, ou avec perte d'hémoglobine > 2 g/dL, hors hémorragie intracrânienne."},
+            {item: "alcohol", title: "Alcool", desc: "Consommation > 8 verres par semaine."}
+        ];
     }
     
     // Change value if toggled

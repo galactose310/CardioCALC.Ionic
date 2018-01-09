@@ -22,7 +22,7 @@
             
             <ion-item>
                 <ion-label>Hypertension artérielle</ion-label>
-                <button ion-button item-end clear (click)="item_help('Hypertension artérielle', 'HTA non contrôlée, PA systolique > 160 mmHg.'); false;">
+                <button ion-button item-end clear (click)="item_help('hypertension'); false;">
                     <ion-icon name='help-circle'></ion-icon>
                 </button>
                 <ion-toggle color="secondary" (ionChange)="htens_toggle();"></ion-toggle>
@@ -30,7 +30,7 @@
             
             <ion-item>
                 <ion-label>Insuffisance rénale</ion-label>
-                <button ion-button item-end clear (click)="item_help('Insuffisance rénale', 'Créatininémie > 200 µmol/l ou dialyse ou transplantation rénale.'); false;">
+                <button ion-button item-end clear (click)="item_help('renalFailure'); false;">
                     <ion-icon name='help-circle'></ion-icon>
                 </button>
                 <ion-toggle color="secondary" (ionChange)="renal_toggle();"></ion-toggle>
@@ -38,7 +38,7 @@
             
             <ion-item>
                 <ion-label>Insuffisance hépatique</ion-label>
-                <button ion-button item-end clear (click)="item_help('Insuffisance hépatique', 'Cirrhose ou bilirubinémie > 2x la normale avec ASAT/ALAT/PAL > 3x la normale.'); false;">
+                <button ion-button item-end clear (click)="item_help('hepaticFailure'); false;">
                     <ion-icon name='help-circle'></ion-icon>
                 </button>
                 <ion-toggle color="secondary" (ionChange)="hepatic_toggle();"></ion-toggle>
@@ -51,7 +51,7 @@
             
             <ion-item>
                 <ion-label>Saignement majeur</ion-label>
-                <button ion-button item-end clear (click)="item_help('Saignement majeur', 'Antécédent de saignement nécessitant une hospitalisation, une transfusion, ou avec perte d\\'hémoglobine > 2 g/dL, hors hémorragie intracrânienne.'); false;">
+                <button ion-button item-end clear (click)="item_help('bleeding'); false;">
                     <ion-icon name='help-circle'></ion-icon>
                 </button>
                 <ion-toggle color="secondary" (ionChange)="bleeding_toggle();"></ion-toggle>
@@ -74,7 +74,7 @@
             
             <ion-item>
                 <ion-label>Alcool</ion-label>
-                <button ion-button item-end clear (click)="item_help('Alcool', 'Consommation > 8 verres par semaine.'); false;">
+                <button ion-button item-end clear (click)="item_help('alcohol'); false;">
                     <ion-icon name='help-circle'></ion-icon>
                 </button>
                 <ion-toggle color="secondary" (ionChange)="alcohol_toggle();"></ion-toggle>
