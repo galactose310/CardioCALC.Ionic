@@ -16,11 +16,11 @@ log.txt
 .vscode/
 npm-debug.log*
 
-.AppPackages/
-.bin/
-.bld/
-.res/
-.resources/
+AppPackages/
+bin/
+bld/
+res/
+resources/
 .idea/
 .sourcemaps/
 .sass-cache/
