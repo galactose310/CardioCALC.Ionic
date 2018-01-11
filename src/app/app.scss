@@ -64,3 +64,30 @@ ion-select {
     padding: 0;
     margin: 0;
 }
+
+.menu-list
+{
+    margin: 0;
+    border: none !important;
+}
+
+.menu-list-header
+{
+    margin: 0 !important;
+    background-color: #efeff4 !important;
+    border-top: 1px solid #c8c7cc !important;
+    border-bottom: 1px solid #c8c7cc !important;
+}
+
+ion-searchbar
+{
+    ::placeholder { text-align: left; }
+    input { text-align: left; }
+}
+
+.list-ios>.item-block:first-child {
+    border-top: none;
+}
+.list-ios>.item-block:last-child {
+    border-bottom: none;
+}

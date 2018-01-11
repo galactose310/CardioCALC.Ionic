@@ -3,7 +3,7 @@ import { AlertController } from 'ionic-angular';
 import { Score } from '../generic/generic';
 
 /*
-  Generated class for the ChadsvascPage page.
+  Generated class for the WellsPage page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
@@ -15,79 +15,74 @@ import { Score } from '../generic/generic';
 
 export class WellsPage extends Score {
     
-    heartFailure: number = 0;
-    hypertension: number = 0;
-    ageOver65: number = 0;
-    diabetes: number = 0;
-    stroke: number = 0;
-    vascular: number = 0;
-    ageOver75: number = 0;
-    female: number = 0;
-    riskRate: number = 0;
+    previousPE: number = 0;
+    heartRateOver100: number = 0;
+    surgery: number = 0;
+    haemoptysis: number = 0;
+    cancer: number = 0;
+    clinicalDVT: number = 0;
+    alternativeDiag: number = 3;
     
     constructor(public alertCtrl: AlertController)
     {
         super(alertCtrl);
-        this.set_score_name("Score CHA2DS2-VASc");
+        this.set_score_name("Score de Wells");
         
-        this.helpItems.push({item: "HTA", title: "HTA", desc :"HTA non contrôlée"});
+        this.helpItems = [
+            {item: "previousPE", title: "Antécédent d'EP / TVP", desc: "EP : embolie pulmonaire. TVP : thrombose veineuse profonde."},
+            {item: "surgery", title: "Chirurgie / immobilisation", desc: "Chirurgie ou immobilisation prolongée dans les 4 dernières semaines."},
+            {item: "cancer", title: "Cancer évolutif", desc: "Néoplasie active ou en rémission depuis moins d'un an."},
+            {item: "clinicalDVT", title: "Signes cliniques de TVP", desc: "TVP : thrombose veineuse profonde."},
+            {item: "alternativeDiag", title: "Diagnostic alternatif", desc: "Un diagnostic alternatif est au moins aussi probable que l'embolie pulmonaire."}
+        ];
     }
     
     // Change value if toggled
-    hfail_toggle (): void
+    previousPE_toggle (): void
     {
-        (this.heartFailure == 0) ? this.heartFailure = 1 : this.heartFailure = 0;
+        (this.previousPE == 0) ? this.previousPE = 1.5 : this.previousPE = 0;
     }
     
     // Change value if toggled
-    htens_toggle (): void
+    heartrate_toggle (): void
     {
-        (this.hypertension == 0) ? this.hypertension = 1 : this.hypertension = 0;
+        (this.heartRateOver100 == 0) ? this.heartRateOver100 = 1.5 : this.heartRateOver100 = 0;
     }
     
     // Change value if toggled
-    age65_toggle (): void
+    surgery_toggle (): void
     {
-        (this.ageOver65 == 0) ? this.ageOver65 = 1 : this.ageOver65 = 0;
-    }
-    
-    // Change diabetes value if toggled
-    diabetes_toggle (): void
-    {
-        (this.diabetes == 0) ? this.diabetes = 1 : this.diabetes = 0;
+        (this.surgery == 0) ? this.surgery = 1.5 : this.surgery = 0;
     }
     
     // Change value if toggled
-    stroke_toggle (): void
+    haemoptysis_toggle (): void
     {
-        (this.stroke == 0) ? this.stroke = 1 : this.stroke = 0;
+        (this.haemoptysis == 0) ? this.haemoptysis = 1 : this.haemoptysis = 0;
     }
     
     // Change value if toggled
-    vascular_toggle (): void
+    cancer_toggle (): void
     {
-        (this.vascular == 0) ? this.vascular = 1 : this.vascular = 0;
+        (this.cancer == 0) ? this.cancer = 1 : this.cancer = 0;
     }
     
     // Change value if toggled
-    age75_toggle (): void
+    clinicalDVT_toggle (): void
     {
-        (this.ageOver75 == 0) ? this.ageOver75 = 1 : this.ageOver75 = 0;
+        (this.clinicalDVT == 0) ? this.clinicalDVT = 3 : this.clinicalDVT = 0;
     }
     
     // Change value if toggled
-    female_toggle (): void
+    alternative_toggle (): void
     {
-        (this.female == 0) ? this.female = 1 : this.female = 0;
+        (this.alternativeDiag == 0) ? this.alternativeDiag = 3 : this.alternativeDiag = 0;
     }
     
     // Calculate the score
     calculate (): void
     {
-        this.set_score_result (this.heartFailure + this.hypertension + this.ageOver65 + this.diabetes + (2 * this.stroke)
-                + this.vascular + this.ageOver75 + this.female);
-        if (this.ageOver75 == 1 && this.ageOver65 == 0) this.set_score_result(this.scoreResult + 1);
-        if (this.scoreResult == 1 && this.female == 1) this.set_score_result(0);
+        this.set_score_result (this.previousPE + this.heartRateOver100 + this.surgery + this.haemoptysis + this.cancer + this.clinicalDVT + this.alternativeDiag);
     }
     
     // Display score result after calculating it
@@ -97,45 +92,9 @@ export class WellsPage extends Score {
         this.calculate();
         
         // Then define message to display according the score value
-        switch (this.scoreResult)
-        {
-            case 0:
-                this.riskRate = 0;
-                break;
-            case 1:
-                this.riskRate = 1.3;
-                break;
-            case 2:
-                this.riskRate = 2.2;
-                break;
-            case 3:
-                this.riskRate = 3.2;
-                break;
-            case 4:
-                this.riskRate = 4.0;
-                break;
-            case 5:
-                this.riskRate = 6.7;
-                break;
-            case 6:
-                this.riskRate = 9.8;
-                break;
-            case 7:
-                this.riskRate = 9.6;
-                break;
-            case 8:
-                this.riskRate = 12.5;
-                break;
-            case 9:
-                this.riskRate = 15.2;
-                break;
-            default:
-                this.riskRate = 0;
-                break;
-        }
-        
-        // Set interpretation message to display with score result
-        this.set_interpretation("Risque thrombo-embolique : " + this.riskRate + " % par an.");
+        if (this.scoreResult < 2) this.set_interpretation("Probabilité clinique d'embolie pulmonaire <strong>faible</strong>. Le dosage des D-dimères est recommandé.");
+        else if (this.scoreResult > 6) this.set_interpretation("Probabilité clinique d'embolie pulmonaire <strong>élevée</strong>. La réalisation d'un angioscanner thoracique est recommandée, sans dosage des D-dimères.");
+        else this.set_interpretation("Probabilité clinique d'embolie pulmonaire <strong>intermédiaire</strong>. Le dosage des D-dimères est recommandé.");
         
         // Display score result
         super.display();

@@ -6,12 +6,21 @@
 *.log
 *.tmp
 *.tmp.*
+*.apk
+*.jks
+*.jsproj
+*.jsproj.user
 log.txt
 *.sublime-project
 *.sublime-workspace
 .vscode/
 npm-debug.log*
 
+.AppPackages/
+.bin/
+.bld/
+.res/
+.resources/
 .idea/
 .sourcemaps/
 .sass-cache/

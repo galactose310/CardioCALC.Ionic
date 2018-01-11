@@ -1,19 +1,29 @@
 <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
+    <ion-header>
+        <ion-toolbar>
+            <ion-title item-start>Menu</ion-title>
+        </ion-toolbar>    
+        <ion-toolbar>
+            <ion-searchbar mode="ios" (ionInput)="getItems($event)"></ion-searchbar>
+        </ion-toolbar>
+    </ion-header>
+    
+    <ion-content>
+        <ion-list class="menu-list">
+            <ion-list-header mode="ios" class="menu-list-header">Scores</ion-list-header>
+            <button menuClose ion-item *ngFor="let score of scores" (click)="openPage(score)">
+                {{score.title}}
+            </button>
+        </ion-list>
+        <ion-list class="menu-list">
+            <ion-list-header mode="ios" class="menu-list-header">Calculs</ion-list-header>
+            <button menuClose ion-item *ngFor="let calcul of calculs" (click)="openPage(calcul)">
+                {{calcul.title}}
+            </button>
+        </ion-list>
+    </ion-content>
 
 </ion-menu>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>

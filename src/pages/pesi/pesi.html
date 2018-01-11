@@ -1,0 +1,124 @@
+<!--
+  Generated template for the PesiPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon color="primary" name="menu"></ion-icon>
+        </button>
+        <ion-title>Score PESI</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    
+    <form (ngSubmit)="display();">
+        
+        <ion-list no-lines>
+            
+            <ion-item>
+                <ion-label>Age</ion-label>
+                <ion-input type="text" placeholder="(années)" name="age" [(ngModel)]="age"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Sexe masculin</ion-label>
+                <ion-toggle color="secondary" (ionChange)="sexmale_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Cancer</ion-label>
+                <button ion-button item-end clear (click)="item_help('cancer'); false;">
+                    <ion-icon name='help-circle'></ion-icon>
+                </button>
+                <ion-toggle color="secondary" (ionChange)="cancer_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Insuffisance cardiaque</ion-label>
+                <ion-toggle color="secondary" (ionChange)="heartfailure_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Insufisance respiratoire</ion-label>
+                <ion-toggle color="secondary" (ionChange)="respfailure_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Tachycardie > 110 bpm</ion-label>
+                <ion-toggle color="secondary" (ionChange)="tachycardia_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Hypotension < 100 mmHg</ion-label>
+                <button ion-button item-end clear (click)="item_help('hypotension'); false;">
+                    <ion-icon name='help-circle'></ion-icon>
+                </button>
+                <ion-toggle color="secondary" (ionChange)="hypotension_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Tachypnée > 30/min</ion-label>
+                <ion-toggle color="secondary" (ionChange)="tachypnea_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Hypothermie < 36°C</ion-label>
+                <ion-toggle color="secondary" (ionChange)="hypothermia_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Conscience altérée</ion-label>
+                <button ion-button item-end clear (click)="item_help('conscious'); false;">
+                    <ion-icon name='help-circle'></ion-icon>
+                </button>
+                <ion-toggle color="secondary" (ionChange)="conscious_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Désaturation < 90 %</ion-label>
+                <button ion-button item-end clear (click)="item_help('desaturation'); false;">
+                    <ion-icon name='help-circle'></ion-icon>
+                </button>
+                <ion-toggle color="secondary" (ionChange)="desaturation_toggle();"></ion-toggle>
+            </ion-item>
+            
+        </ion-list>
+        
+        <button ion-button type="submit">CALCULER</button>
+        
+    </form>
+    
+    <div id="item_description">
+        
+        <p>
+            Le score PESI (Pulmonary Embolism Severity Index) évalue la gravité clinique d'une embolie pulmonaire aiguë, en-dehors des situations d'état de choc ou d'hypotension artérielle sévère.
+        </p>
+        <p id="item_source">
+            Source :
+            <a href="https://doi.org/10.1164/rccm.200506-862OC">
+                Derivation and validation of a prognostic model for pulmonary embolism.
+                Aujesky D, et al. Am J Respir Crit Care Med, 2005;172(8):1041-6.
+            </a>
+        </p>
+        <p id="item_source">
+            Validation :
+            <a href="https://doi.org/10.1160/TH08-05-0285">
+                Prospective validation of the Pulmonary Embolism Severity Index. A clinical prognostic model for pulmonary embolism.
+                Donzé J, et al. Thrombosis and Haemostasis, 2008;100(5):943-8.
+            </a>
+        </p>
+        <p id="item_source">
+            Recommandations :
+            <a href="https://doi.org/10.1093/eurheartj/ehu283">
+                2014 ESC Guidelines on the diagnosis and management of acute pulmonary embolism.
+                Konstantinides SV, et al. European Heart Journal, 2014;35(43):3033-69, 3069a-3069k.
+            </a>
+        </p>
+        
+    </div>
+    
+</ion-content>

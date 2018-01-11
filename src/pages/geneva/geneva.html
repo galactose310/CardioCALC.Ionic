@@ -1,5 +1,5 @@
 <!--
-  Generated template for the WellsPage page.
+  Generated template for the GenevaPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -9,7 +9,7 @@
         <button ion-button menuToggle>
             <ion-icon color="primary" name="menu"></ion-icon>
         </button>
-        <ion-title>Score de Wells</ion-title>
+        <ion-title>Score de Genève modifié</ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -28,8 +28,13 @@
             </ion-item>
             
             <ion-item>
-                <ion-label>Fréq. cardiaque > 100 bpm</ion-label>
-                <ion-toggle color="secondary" (ionChange)="heartrate_toggle();"></ion-toggle>
+                <ion-label>Fréq. cardiaque > 75 bpm</ion-label>
+                <ion-toggle color="secondary" (ionChange)="heartrate75_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Fréq. cardiaque > 95 bpm</ion-label>
+                <ion-toggle color="secondary" (ionChange)="heartrate95_toggle();"></ion-toggle>
             </ion-item>
             
             <ion-item>
@@ -54,19 +59,24 @@
             </ion-item>
             
             <ion-item>
-                <ion-label>TVP clinique</ion-label>
-                <button ion-button item-end clear (click)="item_help('clinicalDVT'); false;">
+                <ion-label>Douleur d'un mollet</ion-label>
+                <button ion-button item-end clear (click)="item_help('limbPain'); false;">
                     <ion-icon name='help-circle'></ion-icon>
                 </button>
-                <ion-toggle color="secondary" (ionChange)="clinicalDVT_toggle();"></ion-toggle>
+                <ion-toggle color="secondary" (ionChange)="limbPain_toggle();"></ion-toggle>
             </ion-item>
             
             <ion-item>
-                <ion-label>Diagnostic alternatif</ion-label>
-                <button ion-button item-end clear (click)="item_help('alternativeDiag'); false;">
+                <ion-label>Oedème douloureux</ion-label>
+                <button ion-button item-end clear (click)="item_help('oedema'); false;">
                     <ion-icon name='help-circle'></ion-icon>
                 </button>
-                <ion-toggle color="secondary" (ionChange)="alternative_toggle();"></ion-toggle>
+                <ion-toggle color="secondary" (ionChange)="oedema_toggle();"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Age > 65 ans</ion-label>
+                <ion-toggle color="secondary" (ionChange)="age65_toggle();"></ion-toggle>
             </ion-item>
             
         </ion-list>
@@ -78,13 +88,13 @@
     <div id="item_description">
         
         <p>
-            Le score de Wells évalue la probabilité clinique d'embolie pulmonaire. Ne pas utiliser dans les situations d'hypotension artérielle ou d'état de choc.
+            Le score de Genève modifié évalue la probabilité clinique d'embolie pulmonaire. Ne pas utiliser dans les situations d'hypotension artérielle ou d'état de choc.
         </p>
         <p id="item_source">
             Source :
-            <a href="https://www.researchgate.net/publication/12572482_Derivation_of_a_Simple_Clinical_Model_to_Categorize_Patients_Probability_of_Pulmonary_Embolism-Increasing_the_Models_Utility_with_the_SimpliRED_D-dimer">
-                Derivation of a simple clinical model to categorize patients probability of pulmonary embolism: increasing the models utility with the SimpliRED D-dimer.
-                Wells PS, et al. Thrombosis and Haemostasis, 2000;83(3):416-20.
+            <a href="https://doi.org/10.7326/0003-4819-144-3-200602070-00004">
+                Prediction of pulmonary embolism in the emergency department: the revised Geneva score.
+                Le Gal G, et al. Annals of Internal Medicine, 2006;144(3):165-71.
             </a>
         </p>
         <p id="item_source">

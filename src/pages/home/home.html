@@ -11,17 +11,25 @@
         </button>
         <ion-title>CardioCALC</ion-title>
     </ion-navbar>
+    <ion-toolbar>
+        <ion-searchbar mode="ios" (ionInput)="getItems($event)"></ion-searchbar>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
     
-    <ion-list no-lines>
-        
-        <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-            <ion-icon color="primary" item-start name="arrow-forward"></ion-icon>
-            {{p.title}}
+    <ion-list class="menu-list">
+        <ion-list-header mode="ios" class="menu-list-header">Scores</ion-list-header>
+        <button menuClose ion-item *ngFor="let score of scores" (click)="openPage(score)">
+            {{score.title}}
         </button>
-        
+    </ion-list>
+    
+    <ion-list class="menu-list">
+        <ion-list-header mode="ios" class="menu-list-header">Calculs</ion-list-header>
+        <button menuClose ion-item *ngFor="let calcul of calculs" (click)="openPage(calcul)">
+            {{calcul.title}}
+        </button>
     </ion-list>
     
 </ion-content>

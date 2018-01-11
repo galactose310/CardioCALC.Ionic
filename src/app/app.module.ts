@@ -14,6 +14,9 @@ import { HcmsuddeathPage } from '../pages/hcmsuddeath/hcmsuddeath';
 import { BodysurfacePage } from '../pages/bodysurface/bodysurface';
 import { ClearancePage } from '../pages/clearance/clearance';
 import { QtintervalPage } from '../pages/qtinterval/qtinterval';
+import { WellsPage } from '../pages/wells/wells';
+import { GenevaPage } from '../pages/geneva/geneva';
+import { PesiPage } from '../pages/pesi/pesi';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -30,6 +33,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BodysurfacePage,
     ClearancePage,
     QtintervalPage,
+    WellsPage,
+    GenevaPage,
+    PesiPage,
     AboutPage
   ],
   imports: [
@@ -48,6 +54,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BodysurfacePage,
     ClearancePage,
     QtintervalPage,
+    WellsPage,
+    GenevaPage,
+    PesiPage,
     AboutPage
   ],
   providers: [
