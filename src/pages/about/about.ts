@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
+import { ConditionsPage } from '../conditions/conditions';
 
 /*
   Generated class for the AboutPage page.
@@ -12,6 +14,12 @@ import { Component } from '@angular/core';
 })
 export class AboutPage {
     
-    constructor() {}
+    conditionsPage: any = { component: ConditionsPage }
     
+    constructor(public navCtrl: NavController, public navParams: NavParams) {}
+    
+    openPage(page)
+    {
+        this.navCtrl.setRoot(page.component);
+    }
 }

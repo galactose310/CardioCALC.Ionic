@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController } from 'ionic-angular';
+import { AlertController, ToastController } from 'ionic-angular';
 import { Score } from '../generic/generic';
 
 /**
@@ -28,9 +28,9 @@ export class PesiPage extends Score {
     conscious: number = 0;
     desaturation: number = 0;
     
-    constructor(public alertCtrl: AlertController)
+    constructor(public alertCtrl: AlertController, public toastCtrl: ToastController)
     {
-        super(alertCtrl);
+        super(alertCtrl, toastCtrl);
         this.set_score_name("Score PESI");
         
         this.helpItems = [

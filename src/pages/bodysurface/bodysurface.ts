@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController } from 'ionic-angular';
+import { AlertController, ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Score } from '../generic/generic';
 
@@ -22,9 +22,9 @@ export class BodysurfacePage extends Score {
     
     private scoreForm: FormGroup;
     
-    constructor(public alertCtrl: AlertController, private formBuilder: FormBuilder)
+    constructor(public alertCtrl: AlertController, private formBuilder: FormBuilder, public toastCtrl: ToastController)
     {
-        super(alertCtrl);
+        super(alertCtrl, toastCtrl);
         this.set_score_name("Surface corporelle (m²)");
         
         // Set up page form

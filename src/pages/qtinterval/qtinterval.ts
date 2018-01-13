@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController } from 'ionic-angular';
+import { AlertController, ToastController } from 'ionic-angular';
 import { Score } from '../generic/generic';
 
 /**
@@ -25,9 +25,9 @@ export class QtintervalPage extends Score {
     method: string = "rr";
     intervalUnit: string = "ms";
 
-    constructor(public alertCtrl: AlertController)
+    constructor(public alertCtrl: AlertController, public toastCtrl: ToastController)
     {
-        super(alertCtrl);
+        super(alertCtrl, toastCtrl);
         this.set_score_name("QT corrigé (ms)");
     }
     

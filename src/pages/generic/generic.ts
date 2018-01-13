@@ -1,4 +1,4 @@
-import { AlertController } from 'ionic-angular';
+import { AlertController, ToastController } from 'ionic-angular';
 
 export type Item = {
     item: string;
@@ -15,7 +15,7 @@ export class Score
     dataToValidate: number[];
     helpItems: Item[];
     
-    constructor (public alertCtrl: AlertController) {}
+    constructor (public alertCtrl: AlertController, public toastCtrl: ToastController) {}
     
     // Check if a variable has an empty value
     empty (data: any): boolean
@@ -31,23 +31,13 @@ export class Score
         {
             if (this.empty(this.dataToValidate[i]))
             {
-                this.alertCtrl.create({
-                        title: 'Erreur',
-                        subTitle: 'Remplissez tous les champs.',
-                        buttons: ['OK'],
-                        cssClass: 'alerts'
-                    }).present();
+                this.alert("Erreur", "Remplissez tous les champs.", "toast");
                 return false;
             }
             
             else if (isNaN(this.dataToValidate[i]))
             {
-                this.alertCtrl.create({
-                        title: 'Erreur',
-                        subTitle: 'N\'utilisez que des nombres.',
-                        buttons: ['OK'],
-                        cssClass: 'alerts'
-                    }).present();
+                this.alert("Erreur", "N'utilisez que des nombres.", "toast");
                 return false;
             }
         }
@@ -77,12 +67,7 @@ export class Score
     // Display score result
     display ()
     {
-        this.alertCtrl.create({
-                title: this.scoreName + ' : ' + this.scoreResult,
-                subTitle: this.scoreInterpretation,
-                buttons: ['OK'],
-                cssClass: 'alerts'
-            }).present();
+        this.alert(this.scoreName + ' : ' + this.scoreResult, this.scoreInterpretation);
         
         // Reinitialize score variables
         this.set_score_result();
@@ -90,14 +75,29 @@ export class Score
     }
     
     // Display info on item
-    alert (alertTitle: string = null, alertMessage: string = null): void
+    alert (alertTitle: string = null, alertMessage: string = null, alertType: string = "alert"): void
     {
-        this.alertCtrl.create({
-                title: alertTitle,
-                subTitle: alertMessage,
-                buttons: ['OK'],
-                cssClass: 'alerts'
-            }).present();
+        switch (alertType)
+        {
+            case "toast":
+                this.toastCtrl.create({
+                        message: alertMessage,
+                        position: "middle",
+                        showCloseButton: true,
+                        closeButtonText: "Ok"
+                    }).present();
+                break;
+                
+            case "alert":
+            default:
+                this.alertCtrl.create({
+                        title: alertTitle,
+                        subTitle: alertMessage,
+                        buttons: ['OK'],
+                        cssClass: 'alerts'
+                    }).present();
+                break;
+        }
     }
     
     // Display info on item

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController } from 'ionic-angular';
+import { AlertController, ToastController } from 'ionic-angular';
 import { Score } from '../generic/generic';
 
 /*
@@ -25,9 +25,9 @@ export class ChadsvascPage extends Score {
     female: number = 0;
     riskRate: number = 0;
     
-    constructor(public alertCtrl: AlertController)
+    constructor(public alertCtrl: AlertController, public toastCtrl: ToastController)
     {
-        super(alertCtrl);
+        super(alertCtrl, toastCtrl);
         this.set_score_name("Score CHA2DS2-VASc");
         
         this.helpItems = [

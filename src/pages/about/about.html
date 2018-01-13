@@ -9,20 +9,28 @@
         <button ion-button menuToggle>
             <ion-icon color="primary" name="menu"></ion-icon>
         </button>
-        <ion-title>A propos...</ion-title>
+        <ion-title>Informations</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
     
     <ion-list>
-
-        <img src="assets/img/about.png" padding />
-        <ion-item>CardioCALC v 1.3.5</ion-item>
-        <ion-item>Auteur : Olivier Raitière</ion-item>
-        <ion-item>Mail : <a href="mailto:cardiocalc@outlook.com">cardiocalc@outlook.com</a></ion-item>
-        <ion-item>Powered by <a href="http://ionicframework.com/">Ionic 3</a></ion-item>
-
+        
+        <h2>A propos de CardioCALC</h2>
+        <ion-item>
+            <ion-thumbnail item-start>
+                <img src="/assets/img/about.png" />
+            </ion-thumbnail>
+            <h2>CardioCALC</h2>
+            <h3>Version : 1.3.5</h3>
+            <p>Auteur : Olivier Raitière</p>
+        </ion-item>
+        
     </ion-list>
     
+    <button ion-button text-center block (click)="openPage(conditionsPage)">Je veux relire les conditions d'utilisation</button>
+
+    <ion-item>Un problème ? <a href="mailto:cardiocalc@outlook.com">Contactez-nous !</a></ion-item>
+
 </ion-content>

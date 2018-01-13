@@ -5,11 +5,18 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
-            <ion-icon color="primary" name="menu"></ion-icon>
-        </button>
-        <ion-title>CardioCALC</ion-title>
+    <ion-navbar mode="ios">
+        <ion-buttons start>
+            <button ion-button menuToggle>
+                <ion-icon color="primary" name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="openPage(aboutPage)">
+                <ion-icon color="primary" ios="ios-information-circle-outline" md="ios-information-circle-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title item-content text-center>CardioCALC</ion-title>
     </ion-navbar>
     <ion-toolbar>
         <ion-searchbar mode="ios" (ionInput)="getItems($event)"></ion-searchbar>

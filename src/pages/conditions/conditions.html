@@ -1,0 +1,125 @@
+<!--
+  Generated template for the ConditionsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title mode="md" text-center>CardioCALC</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding text-justify>
+    
+    <div id="advertise">
+        
+        <h1>AVERTISSEMENT</h1>
+        <p>
+            CardioCALC est une application mobile d'aide au calcul de scores médicaux dans le but d'aider le médecin clinicien dans sa pratique quotidienne. Les différents calculs, scores, stratégies diagnostiques et thérapeutiques proposés par l'application sont issus d'articles scientifiques publiés dans des revues médicales et de recommandations de pratiques publiées par des sociétés savantes internationalement reconnues en Cardiologie. Les auteurs de CardioCALC ainsi que ses distributeurs ne pourront pas être tenus pour responsables des conséquences de son utilisation, qui se fait sous la responsabilité pleine et entière de l'utilisateur. CardioCALC ne suffit pas à établir un diagnostic, et ne se substitue en aucune manière au raisonnement médical, à un examen clinique ou aux examens paracliniques (examens d'imagerie, de laboratoire) adéquats. Cette application est destinée à un usage professionnel. Pour toute question concernant votre santé, contactez votre médecin et ne retardez pas la consultation médicale en raison d'une information délivrée par l'application.
+        </p>
+        <p>
+            J'ai lu cet avertissement, je le comprends et j'en accepte les conditions :
+            <ion-checkbox mode="md" [(ngModel)]="userAcceptsAvert"></ion-checkbox>
+        </p>
+        
+    </div>
+    
+    <div id="guc" *ngIf="userAcceptsAvert">
+        
+        <h1>Conditions générales d'utilisation</h1>
+        
+        <h2>ARTICLE 1 : Objet et mentions légales</h2>
+        <p>
+            <strong>1.1.</strong> Les présentes « conditions générales d'utilisation » ont pour objet l'encadrement juridique des modalités de mise à disposition des services du logiciel CardioCALC et leur utilisation par « l'Utilisateur ». Les conditions générales d'utilisation doivent être acceptées par tout Utilisateur souhaitant utiliser le Logiciel. Elles constituent le contrat entre le Logiciel et l'Utilisateur. L’accès aux fonctionnalités du Logiciel par l’Utilisateur signifie son acceptation des présentes conditions générales d’utilisation.
+            En cas de non-acceptation des conditions générales d'utilisation stipulées dans le présent contrat, l'Utilisateur se doit de renoncer à l'accès aux Services proposés par le Logiciel. L'équipe de CardioCALC se réserve le droit de modifier unilatéralement et à tout moment le contenu des présentes conditions générales d'utilisation (qui devront alors être à nouveau acceptées par l'Utilisateur).
+        </p>
+        <p>
+            <strong>1.2.</strong> Le Logiciel est la propriété de son auteur Olivier Raitière, Docteur en Cardiologie au Centre Hospitalier Universitaire de Rouen (CHU de Rouen, service de Cardiologie, 1 rue de Germont, 76000 Rouen, France).
+        </p>
+        <p>
+            <strong>1.3.</strong> Le Logiciel est un logiciel libre tel que défini par la <a href="https://www.fsf.org/">Free Software Foundation</a>. Son code source est accessible à partir du site <a href="https://github.com/">GitHub</a>.
+        </p>
+        <p>
+            <strong>1.4.</strong> Le Logiciel est distribué gratuitement sur l'AppStore de la marque Apple, le Google Play Store de la marque Google et le Windows Store de la marque Microsoft. Tout autre mode de distribution du Logiciel ainsi que toute commercialisation du Logiciel ne peuvent se faire sans l'accord écrit de son auteur Olivier Raitière. Pour toute requête, merci de le contacter à l'adresse suivante : <a href="mailto:cardiocalc@outlook.com">cardiocalc@outlook.com</a>.
+        </p>
+        
+        <h2>ARTICLE 2 : Définitions</h2>
+        <p>
+            La présente clause a pour objet de définir les différents termes essentiels du contrat :<br />
+            - Utilisateur : ce terme désigne toute personne qui utilise le Logiciel ou l'un des services proposés par le Logiciel.
+            - Logiciel : ce terme désigne le produit CardioCALC en tant que logiciel informatique.
+            - Services : ce terme désigne l'ensemble des fonctionnalités du Logiciel au sein de celui-ci.
+        </p>
+        
+        <h2>ARTICLE 3 : Droits d'accès</h2>
+        <p>
+            <strong>3.1.</strong> L'accès aux Services par l'Utilisateur est entièrement gratuit et ne nécessite aucune inscription ni aucune identification. La seule condition nécessaire pour accéder aux Services est l'acceptation par l'Utilisateur des présentes conditions générales d’utilisation. Tous les frais supportés par l'Utilisateur pour accéder aux Services (matériel informatique, logiciels, connexion Internet, etc.) sont à sa charge.
+        </p>
+        <p>
+            <strong>3.2.</strong> L'installation et la désinstallation du Logiciel sur les appareils électroniques de l'Utilisateur peut se faire sans limite et sont laissés à la décision de l'Utilisateur. De ce fait, le Logiciel, son auteur et ses distributeurs ne peuvent pas être tenus pour responsables de dommages causés par l'installation du Logiciel sur les appareils électroniques de l'Utilisateur, ni des éventuels dysfonctionnements de ceux-ci.
+        </p>
+        <p>
+            <strong>3.3.</strong> L'utilisation des Services, après l’installation du Logiciel et acceptation des présentes conditions générales d'utilisation, est valable pour une durée indéterminée.
+        </p>
+        <p>
+            <strong>3.4.</strong> L'auteur du Logiciel se réserve le droit de mettre fin à sa distribution pour quelque raison que ce soit, sans préavis, l'accès aux Services par un Utilisateur ayant installé le Logiciel sur un appareil électronique avant son retrait de la distribution restant possible.
+        </p>
+        
+        <h2>ARTICLE 4 : Propriété intellectuelle</h2>
+        <p>
+            <strong>4.1.</strong> Les marques, logos, signes et tout autre contenu visuel du Logiciel font l'objet d'une protection par le Code de la propriété intellectuelle et plus particulièrement par le droit d'auteur. Les scores, calculs et formules proposés par le Logiciel sont la propriété de leurs auteurs respectifs ; le Logiciel met à la disposition de l'Utilisateur les sources de ces informations.
+        </p>
+        <p>
+            <strong>4.2.</strong> L'Utilisateur sollicite l'autorisation préalable de l'<a href="mailto:cardiocalc@outlook.com">auteur</a> du Logiciel pour toute reproduction, publication, copie des différents contenus.
+        </p>
+        <p>
+            <strong>4.3.</strong> L'Utilisateur s'engage à une utilisation des contenus du Logiciel dans un cadre strictement privé. Une utilisation des contenus à des fins commerciales est strictement interdite.
+        </p>
+        
+        <h2>ARTICLE 5 : Données personnelles</h2>
+        <p>
+            Le Logiciel n'utilise aucune donnée personnelle de l'Utilisateur. Les données personnelles concernant des tiers ne doivent être utilisées que dans le cadre du strict anonymat, et sous la pleine responsabilité de l'Utilisateur. Le Logiciel ne communique aucune donnée personnelle non anonyme à un logiciel tiers, ou à une quelconque base de données. La responsabilité du Logiciel, de son auteur et de ses distributeurs ne peut être engagée en cas de divulgation de données personnelles, quelle que soit leur nature ou leur provenance, liées à l'utilisation du Logiciel.
+        </p>
+        
+        <h2>ARTICLE 6 : Responsabilité et force majeure</h2>
+        <p>
+            <strong>6.1.</strong> Les informations diffusées par le Logiciel proviennent de publications scientifiques relues et acceptées par leur éditeur, et de recommandations françaises ou internationales émises par des société savantes internationalement reconnues. Ces informations sont réputées fiables. Toutefois, le Logiciel se réserve la faculté d'une non-garantie de la fiabilité des sources. Les informations données par le Logiciel le sont à titre purement informatif. Ainsi, l'Utilisateur assume seul l'entière responsabilité de l'utilisation des informations et contenus du présent Logiciel. Le Logiciel, son auteur et ses distributeurs ne peuvent pas être tenus pour responsables, sans que cette liste ne soit limitative, des dommages ou dépenses de toute nature incluant une erreur de diagnostic, un retard de diagnostic, une perte de chance pouvant être à l’origine d’infirmités, séquelles ou encore de décès.
+        </p>
+        <p>
+            <strong>6.2.</strong> Tout usage des Services par l'Utilisateur ayant directement ou indirectement pour conséquence des dommages doit faire l'objet d'une indemnisation au profit du Logiciel. La responsabilité du Logiciel, de son auteur ou de ses distributeurs ne peut être engagée en cas de force majeure ou du fait imprévisible et insurmontable d'un tiers.
+        </p>
+        
+        <h2>ARTICLE 7 : Liens hypertextes</h2>
+        <p>
+            De nombreux liens hypertextes sortants sont présents sur le Logiciel, cependant les pages web où mènent ces liens n'engagent en rien la responsabilité du logiciel, de son auteur ni de ses distributeurs, qui n'ont pas le contrôle de ces liens. L'Utilisateur s'interdit donc à engager la responsabilité du Logiciel, de son auteur ou de ses distributeurs concernant le contenu et les ressources relatives à ces liens hypertextes sortants.
+        </p>
+        
+        <h2>ARTICLE 8 : Evolution du contrat</h2>
+        <p>
+            Le site se réserve à tout moment le droit de modifier les clauses stipulées dans le présent contrat.
+        </p>
+        
+        <h2>ARTICLE 9 : Durée</h2>
+        <p>
+            La durée du présent contrat est indéterminée. Le contrat produit ses effets à l'égard de l'Utilisateur à compter de l'utilisation des Services.
+        </p>
+
+        <h2>ARTICLE 10 : Droit applicable et juridiction compétente</h2>
+        <p>
+            La législation française s'applique au présent contrat. En cas d'absence de résolution amiable d'un litige né entre les parties, seuls les tribunaux de France sont compétents.
+        </p>
+        <hr  />
+        <p>
+            En appuyant sur le bouton "J'accepte ces conditions", je reconnais avoir lu et compris les conditions générales d'utilisation de CardioCALC ainsi que l'avertissement les précédent, les accepter sans réserve et m'y soumettre.
+        </p>
+        <button ion-button block (click)="accept(); openPage(homePage);">
+            J'accepte ces conditions
+        </button>
+        
+    </div>
+    
+</ion-content>

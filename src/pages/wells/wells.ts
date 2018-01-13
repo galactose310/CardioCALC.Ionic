@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController } from 'ionic-angular';
+import { AlertController, ToastController } from 'ionic-angular';
 import { Score } from '../generic/generic';
 
 /*
@@ -23,9 +23,9 @@ export class WellsPage extends Score {
     clinicalDVT: number = 0;
     alternativeDiag: number = 3;
     
-    constructor(public alertCtrl: AlertController)
+    constructor(public alertCtrl: AlertController, public toastCtrl: ToastController)
     {
-        super(alertCtrl);
+        super(alertCtrl, toastCtrl);
         this.set_score_name("Score de Wells");
         
         this.helpItems = [

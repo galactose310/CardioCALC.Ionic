@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController } from 'ionic-angular';
+import { AlertController, ToastController } from 'ionic-angular';
 import { Score } from '../generic/generic';
 
 /**
@@ -24,9 +24,9 @@ export class ClearancePage extends Score {
     ethnicityAfrican: boolean = false;
     creatInMol: boolean = true;
     
-    constructor(public alertCtrl: AlertController)
+    constructor(public alertCtrl: AlertController, public toastCtrl: ToastController)
     {
-        super(alertCtrl);
+        super(alertCtrl, toastCtrl);
         this.set_score_name("Clairance rénale (ml/min)");
     }
     

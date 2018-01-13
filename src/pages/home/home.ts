@@ -13,6 +13,7 @@ import { QtintervalPage } from '../qtinterval/qtinterval';
 import { WellsPage } from '../wells/wells';
 import { GenevaPage } from '../geneva/geneva';
 import { PesiPage } from '../pesi/pesi';
+import { DukePage } from '../duke/duke';
 
 /**
  * Generated class for the HomePage page.
@@ -30,6 +31,7 @@ export class HomePage {
     
     scores: Array<{title: string, component: any}>;
     calculs: Array<{title: string, component: any}>;
+    aboutPage = { component: AboutPage }
     items: Array<string>;
 
     constructor(public navCtrl: NavController, public navParams: NavParams)
@@ -56,10 +58,10 @@ export class HomePage {
         ];
         this.calculs = [
             { title: 'Clairance de la créatinine', component: ClearancePage },
+            { title: 'Critères de Duke', component: DukePage },
             { title: 'IMC', component: BmiPage },
             { title: 'QT corrigé', component: QtintervalPage },
-            { title: 'Surface corporelle', component: BodysurfacePage },
-            { title: 'A propos...', component: AboutPage }
+            { title: 'Surface corporelle', component: BodysurfacePage }
         ];
     }
 

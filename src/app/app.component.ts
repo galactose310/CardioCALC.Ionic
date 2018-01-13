@@ -3,6 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { ConditionsPage } from '../pages/conditions/conditions';
 import { HomePage } from '../pages/home/home';
 import { BerthelotPage } from '../pages/berthelot/berthelot';
 import { BmiPage } from '../pages/bmi/bmi';
@@ -16,6 +17,7 @@ import { QtintervalPage } from '../pages/qtinterval/qtinterval';
 import { WellsPage } from '../pages/wells/wells';
 import { GenevaPage } from '../pages/geneva/geneva';
 import { PesiPage } from '../pages/pesi/pesi';
+import { DukePage } from '../pages/duke/duke';
 
 
 @Component({
@@ -28,13 +30,17 @@ export class MyApp {
   
   scores: Array<{title: string, component: any}>;
   calculs: Array<{title: string, component: any}>;
+  aboutPage = { title: "about", component: AboutPage };
 
   constructor(public platform: Platform, public SplashScreen: SplashScreen, public StatusBar: StatusBar) {
+    
+    (JSON.parse(localStorage.getItem("first_version_conditions_accepted")) != "true") ? this.rootPage = ConditionsPage : this.rootPage = HomePage;
+    
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.initializeItems();
-
+    
   }
 
   initializeApp() {
@@ -66,10 +72,10 @@ export class MyApp {
       ];
       this.calculs = [
           { title: 'Clairance de la créatinine', component: ClearancePage },
+          { title: 'Critères de Duke', component: DukePage },
           { title: 'IMC', component: BmiPage },
           { title: 'QT corrigé', component: QtintervalPage },
-          { title: 'Surface corporelle', component: BodysurfacePage },
-          { title: 'A propos...', component: AboutPage }
+          { title: 'Surface corporelle', component: BodysurfacePage }
       ];
   }
 

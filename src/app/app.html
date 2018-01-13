@@ -1,6 +1,11 @@
 <ion-menu [content]="content">
     <ion-header>
         <ion-toolbar>
+            <ion-buttons end>
+                <button ion-button menuClose icon-only (click)="openPage(aboutPage)">
+                    <ion-icon color="primary" ios="ios-information-circle-outline" md="ios-information-circle-outline"></ion-icon>
+                </button>
+            </ion-buttons>
             <ion-title item-start>Menu</ion-title>
         </ion-toolbar>    
         <ion-toolbar>
