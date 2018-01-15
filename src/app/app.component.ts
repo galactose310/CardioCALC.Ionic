@@ -62,12 +62,12 @@ export class MyApp {
   {
       // used for an example of ngFor and navigation
       this.scores = [
-          { title: 'Berthelot', component: BerthelotPage },
           { title: 'CHA2DS2-VASc', component: ChadsvascPage },
           { title: 'Genève', component: GenevaPage },
           { title: 'HAS-BLED', component: HasbledPage },
           { title: 'HCM Risk-SCD', component: HcmsuddeathPage },
           { title: 'PESI', component: PesiPage },
+          { title: 'PH-HFpEF Group', component: BerthelotPage },
           { title: 'Wells', component: WellsPage }
       ];
       this.calculs = [

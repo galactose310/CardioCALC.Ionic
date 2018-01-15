@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AlertController, ToastController } from 'ionic-angular';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Score } from '../generic/generic';
 
 /**
@@ -25,18 +24,9 @@ export class HcmsuddeathPage extends Score {
     nsvt: number = 0;
     syncope: number = 0;
     
-    private scoreForm: FormGroup;
-    
-    constructor(public alertCtrl: AlertController, private formBuilder: FormBuilder, public toastCtrl: ToastController)
+    constructor(public alertCtrl: AlertController, public toastCtrl: ToastController)
     {
         super(alertCtrl, toastCtrl);
-        this.scoreForm = this.formBuilder.group({
-            age: [''],
-            lvThickness: [''],
-            latriumDiam: [''],
-            lvgradient: ['']
-        });
-        
         this.set_score_name("Risque de mort subite à 5 ans (%)");
     }
     

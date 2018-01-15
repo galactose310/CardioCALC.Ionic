@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AlertController, ToastController } from 'ionic-angular';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Score } from '../generic/generic';
 
 /**
@@ -30,23 +29,11 @@ export class BerthelotPage extends Score {
     bodysurf: number = 0;
     lvmassIsKnown: boolean = true;
     
-    private scoreForm: FormGroup;
-    
-    constructor(public alertCtrl: AlertController, private formBuilder: FormBuilder, public toastCtrl: ToastController)
+    constructor(public alertCtrl: AlertController, public toastCtrl: ToastController)
     {
         super(alertCtrl, toastCtrl);
-        this.scoreForm = this.formBuilder.group({
-            latriumArea: [''],
-            rventricleArea: [''],
-            septum: [''],
-            lvdiam: [''],
-            lvwall: [''],
-            height: [''],
-            weight: [''],
-            lvmass: ['']
-        });
         
-        this.set_score_name("Score de Berthelot");
+        this.set_score_name("Score PH-HFpEF Group");
     }
     
     // Change diabetes value if toggled
@@ -59,12 +46,6 @@ export class BerthelotPage extends Score {
     fibrillation_toggle (): void
     {
         (this.fibrillation == 0) ? this.fibrillation = 1 : this.fibrillation = 0;
-    }
-    
-    // Switch the form to display if lvmass is already known
-    lvmass_toggle (): void
-    {
-        (this.lvmassIsKnown) ? this.lvmassIsKnown = false : this.lvmassIsKnown = true;
     }
     
     // Calculate the score according to values entered by user

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AlertController, ToastController } from 'ionic-angular';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Score } from '../generic/generic';
 
 /*
@@ -19,19 +18,10 @@ export class BmiPage extends Score {
     weight: number = null;
     height: number = null;
     
-    private scoreForm: FormGroup;
-    
-    constructor(public alertCtrl: AlertController, private formBuilder: FormBuilder, public toastCtrl: ToastController)
+    constructor(public alertCtrl: AlertController, public toastCtrl: ToastController)
     {
         super(alertCtrl, toastCtrl);
         this.set_score_name("IMC (kg/m²)");
-        
-        // Set up page form
-        this.scoreForm = this.formBuilder.group({
-            weight: [''],
-            height: ['']
-        });
-        
     }
     
     // Calculate the score according to values entered by user

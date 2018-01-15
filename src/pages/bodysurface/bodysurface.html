@@ -15,18 +15,18 @@
 
 <ion-content padding>
     
-    <form [formGroup]="scoreForm" (ngSubmit)="display();">
+    <form (ngSubmit)="display();">
         
         <ion-list no-lines>
             
             <ion-item>
                 <ion-label color="dark">Poids</ion-label>
-                <ion-input type="text" formControlName="weight" placeholder="(kg)" [(ngModel)]="weight"></ion-input>
+                <ion-input type="text" name="weight" placeholder="(kg)" [(ngModel)]="weight"></ion-input>
             </ion-item>
             
             <ion-item>
                 <ion-label color="dark">Taille</ion-label>
-                <ion-input type="text" formControlName="height" placeholder="(cm)" [(ngModel)]="height"></ion-input>
+                <ion-input type="text" name="height" placeholder="(cm)" [(ngModel)]="height"></ion-input>
             </ion-item>
             
         </ion-list>
