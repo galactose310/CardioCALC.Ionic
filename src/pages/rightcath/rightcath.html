@@ -1,0 +1,116 @@
+<!--
+  Generated template for the RightcathPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon color="primary" name="menu"></ion-icon>
+        </button>
+        <ion-title>Hémodynamique</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+	
+	<ion-toolbar mode="md">
+			<ion-segment color="primary" name="method" [(ngModel)]="method">
+				<ion-segment-button value="rightcath">Cathétérisme droit</ion-segment-button>
+				<ion-segment-button value="echo">Echocardiographie</ion-segment-button>
+			</ion-segment>
+	</ion-toolbar>
+	
+    <ion-list no-lines>
+        <ion-item>
+            <ion-label color="dark">Poids</ion-label>
+            <ion-input type="number" name="weight" placeholder="(kg)" [(ngModel)]="weight"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="dark">Taille</ion-label>
+            <ion-input type="number" name="height" placeholder="(cm)" [(ngModel)]="height"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="dark">Fréquence cardiaque</ion-label>
+            <ion-input type="number" name="heartRate" placeholder="(batt/min)" [(ngModel)]="heartRate"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="method == 'rightcath'">
+            <ion-label color="dark">Débit cardiaque</ion-label>
+            <ion-input type="number" name="output" placeholder="(l/min)" [(ngModel)]="output"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="method == 'rightcath'">
+            <ion-label color="dark">PAP moyenne</ion-label>
+            <ion-input type="number" name="meanPressure" placeholder="(mmHg)" [(ngModel)]="meanPressure"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="method == 'rightcath'">
+            <ion-label color="dark">PAP systolique</ion-label>
+            <ion-input type="number" name="systPressure" placeholder="(mmHg)" [(ngModel)]="systPressure"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="method == 'rightcath'">
+            <ion-label color="dark">PAP diastolique</ion-label>
+            <ion-input type="number" name="diastPressure" placeholder="(mmHg)" [(ngModel)]="diastPressure"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="method == 'rightcath'">
+            <ion-label color="dark">Pression capillaire</ion-label>
+            <ion-input type="number" name="wedgePressure" placeholder="(mmHg)" [(ngModel)]="wedgePressure"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="method == 'echo'">
+            <ion-label color="dark">Diamètre CCVG</ion-label>
+            <ion-input type="number" name="lvotDiam" placeholder="(mm)" [(ngModel)]="lvotDiam"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="method == 'echo'">
+            <ion-label color="dark">ITV sous-aortique</ion-label>
+            <ion-input type="number" name="lvotDoppler" placeholder="(cm)" [(ngModel)]="lvotDoppler"></ion-input>
+        </ion-item>
+    </ion-list>
+
+	<ion-title class="results_title" margin-left margin-right>Résultats</ion-title>
+	<div *ngIf="method == 'rightcath'">
+		<ion-list class="menu-list" no-lines>
+			<ion-item>Index cardiaque (l.min<sup>-1</sup>.m<sup>-2</sup>)<ion-badge item-end mode="ios">{{index()}}</ion-badge></ion-item>
+			<ion-item>Volume d'éjection (ml)<ion-badge item-end mode="ios">{{stroke_volume()}}</ion-badge></ion-item>
+			<ion-item>Résistances pulm. (Wood)<ion-badge item-end mode="ios">{{resistance()}}</ion-badge></ion-item>
+			<ion-item>Gradient transpulm. (mmHg)<ion-badge item-end mode="ios">{{transpulm_gradient()}}</ion-badge></ion-item>
+			<ion-item>Gradient diastolique (mmhg)<ion-badge item-end mode="ios">{{diast_gradient()}}</ion-badge></ion-item>
+			<ion-item>Capacitance pulm. (ml/mmHg)<ion-badge item-end mode="ios">{{capacitance()}}</ion-badge></ion-item>
+		</ion-list>
+		<p class="results" text-center *ngIf="meanPressure >= 25"><strong>Hypertension pulmonaire<span *ngIf="wedgePressure > 0 && wedgePressure <= 15"> pré-capillaire</span><span *ngIf="wedgePressure > 15"> post-capillaire<span *ngIf="diastPressure > 0 && resistance() > 0 && diast_gradient() < 7 && resistance() <= 3"> isolée</span><span *ngIf="diast_gradient() >= 7 || resistance() > 3"> combinée</span></span>.</strong></p>
+	</div>
+	
+	<ion-list class="menu-list" *ngIf="method == 'echo'" no-lines>
+		<ion-item>Débit cardiaque (l/min)<ion-badge item-end mode="ios">{{echo_output()}}</ion-badge></ion-item>
+		<ion-item>Index cardiaque (l.min<sup>-1</sup>.m<sup>-2</sup>)<ion-badge item-end mode="ios">{{echo_index()}}</ion-badge></ion-item>
+		<ion-item>Volume d'éjection (ml)<ion-badge item-end mode="ios">{{echo_stroke_vol()}}</ion-badge></ion-item>
+	</ion-list>
+	
+	<div padding>
+    	<div id="item_description">
+			<p>
+				Calcul des paramètres hémodynamiques non mesurables, à partir des données du cathétérisme cardiaque droit ou de l'échocardiographie.
+			</p>
+	        <p id="item_source">
+	            Recommandations (HTP) :
+	            <a href="https://doi.org/10.1093/eurheartj/ehv317">
+	                2015 ESC/ERS Guidelines for the diagnosis and treatment of pulmonary hypertension.
+					Galiè N, et al. European Heart Journal, 2016;37(1):67-119.
+	            </a>
+	        </p>
+	        <p id="item_source">
+	            Recommandations (ETT) :
+	            <a href="https://doi.org/10.1093/ehjci/jev014">
+	                Recommendations for cardiac chamber quantification by echocardiography in adults: an update from the American Society of Echocardiography and the European Association of Cardiovascular Imaging.
+					Lang RM, et al. Eur Heart J Cardiovasc Imaging, 2015;16(3):233-70.
+	            </a>
+	        </p>
+	        <p id="item_source">
+	            Recommandations (Doppler) :
+	            <a href="http://dx.doi.org/10.1067/mje.2002.120202">
+					Recommendations for quantification of Doppler echocardiography: a report from the Doppler Quantification Task Force of the Nomenclature and Standards Committee of the American Society of Echocardiography.
+					Quiñones MA, et al. J Am Soc Echocardiogrhy, 2002;15(2):167-84.
+				</a>
+			</p>
+		</div>
+    </div>
+	
+</ion-content>

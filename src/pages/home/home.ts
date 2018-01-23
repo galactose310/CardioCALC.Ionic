@@ -14,6 +14,8 @@ import { WellsPage } from '../wells/wells';
 import { GenevaPage } from '../geneva/geneva';
 import { PesiPage } from '../pesi/pesi';
 import { DukePage } from '../duke/duke';
+import { StsPage } from '../sts/sts';
+import { RightcathPage } from '../rightcath/rightcath';
 
 /**
  * Generated class for the HomePage page.
@@ -28,7 +30,7 @@ import { DukePage } from '../duke/duke';
 })
 
 export class HomePage {
-    
+
     scores: Array<{title: string, component: any}>;
     calculs: Array<{title: string, component: any}>;
     aboutPage = { component: AboutPage }
@@ -38,12 +40,12 @@ export class HomePage {
     {
         this.initializeItems();
     }
-    
+
     openPage(page)
     {
         this.navCtrl.setRoot(page.component);
     }
-    
+
     initializeItems(): void
     {
         // used for an example of ngFor and navigation
@@ -54,11 +56,13 @@ export class HomePage {
             { title: 'HCM Risk-SCD', component: HcmsuddeathPage },
             { title: 'PESI', component: PesiPage },
             { title: 'PH-HFpEF Group', component: BerthelotPage },
+            { title: 'STS', component: StsPage },
             { title: 'Wells', component: WellsPage }
         ];
         this.calculs = [
             { title: 'Clairance de la créatinine', component: ClearancePage },
             { title: 'Critères de Duke', component: DukePage },
+            { title: 'Hémodynamique', component: RightcathPage },
             { title: 'IMC', component: BmiPage },
             { title: 'QT corrigé', component: QtintervalPage },
             { title: 'Surface corporelle', component: BodysurfacePage }
@@ -69,7 +73,7 @@ export class HomePage {
     {
         // Reset items back to all of the items
         this.initializeItems();
-        
+
         // if the value is an empty string don't filter the items
         if (ev.target.value && ev.target.value.trim() != '')
         {

@@ -1,0 +1,17 @@
+page-rightcath {
+	
+	ion-list ion-item
+    {
+        margin-left: 5% !important;
+        width: 90% !important;
+    }
+	
+	.list-md>.item-block:last-child {
+	    border-bottom: none;
+	}
+	
+	ion-toolbar { width: 100% !important; }
+	ion-segment { margin-left: 5% !important; width: 90% !important; }
+	ion-segment-button { width: 50% !important; }
+	
+}

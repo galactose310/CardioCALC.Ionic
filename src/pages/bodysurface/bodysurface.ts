@@ -15,38 +15,44 @@ import { Score } from '../generic/generic';
 })
 
 export class BodysurfacePage extends Score {
-    
+
     weight: number = null;
     height: number = null;
-    
+
     constructor(public alertCtrl: AlertController, public toastCtrl: ToastController)
     {
         super(alertCtrl, toastCtrl);
         this.set_score_name("Surface corporelle (m²)");
     }
-    
+
+    // Give formula for external use
+    public bodysurface_formula(weight: number = this.weight, height: number = this.height): number
+    {
+      return Math.round(1000 * 0.0003207 * Math.pow(weight*1000, (0.7285-(0.0188*Math.log10(weight*1000)))) * Math.pow(height, 0.3)) / 1000;
+    }
+
     // Calculate the score according to values entered by user
     calculate (): boolean
-    {    
+    {
         // First we verify validity of sent data ==> do not calculate if unvalid
         this.dataToValidate = [this.weight, this.height];
         if (this.validate_data())
         {
-            this.set_score_result(Math.round(1000 * 0.0003207 * Math.pow(this.weight*1000, (0.7285-(0.0188*Math.log10(this.weight*1000)))) * Math.pow(this.height, 0.3)) / 1000);
+            this.set_score_result(this.bodysurface_formula());
             return true;
+
         }
         else return false;
     }
-    
+
     // Display score result when asked by user
     display (): void
     {
         // Calculate the score and display result only if has been well calculated
         if (this.calculate())
-        {    
+        {
             // Display score result
             super.display();
         }
     }
-    
 }

@@ -32,12 +32,12 @@
             
             <ion-item>
                 <ion-label color="dark">Surface OG</ion-label>
-                <ion-input type="text" name="latriumArea" placeholder="(cm²)" [(ngModel)]="latriumArea"></ion-input>
+                <ion-input type="number" name="latriumArea" placeholder="(cm²)" [(ngModel)]="latriumArea"></ion-input>
             </ion-item>
             
             <ion-item>
                 <ion-label color="dark">Surface VD</ion-label>
-                <ion-input type="text" name="rventricleArea" placeholder="(cm²)" [(ngModel)]="rventricleArea"></ion-input>
+                <ion-input type="number" name="rventricleArea" placeholder="(cm²)" [(ngModel)]="rventricleArea"></ion-input>
             </ion-item>
             
             <ion-item>
@@ -47,32 +47,32 @@
             
             <ion-item *ngIf="!lvmassIsKnown">
                 <ion-label color="dark">Septum</ion-label>
-                <ion-input type="text" name="septum" placeholder="(mm)" [(ngModel)]="septum"></ion-input>
+                <ion-input type="number" name="septum" placeholder="(mm)" [(ngModel)]="septum"></ion-input>
             </ion-item>
             
             <ion-item *ngIf="!lvmassIsKnown">
                 <ion-label color="dark">Diamètre VG</ion-label>
-                <ion-input type="text" name="lvdiam" placeholder="(mm)" [(ngModel)]="lvdiam"></ion-input>
+                <ion-input type="number" name="lvdiam" placeholder="(mm)" [(ngModel)]="lvdiam"></ion-input>
             </ion-item>
             
             <ion-item *ngIf="!lvmassIsKnown">
                 <ion-label color="dark">Paroi postérieure</ion-label>
-                <ion-input type="text" name="lvwall" placeholder="(mm)" [(ngModel)]="lvwall"></ion-input>
+                <ion-input type="number" name="lvwall" placeholder="(mm)" [(ngModel)]="lvwall"></ion-input>
             </ion-item>
             
             <ion-item *ngIf="!lvmassIsKnown">
                 <ion-label color="dark">Taille</ion-label>
-                <ion-input type="text" name="height" placeholder="(cm)" [(ngModel)]="height"></ion-input>
+                <ion-input type="number" name="height" placeholder="(cm)" [(ngModel)]="height"></ion-input>
             </ion-item>
             
             <ion-item *ngIf="!lvmassIsKnown">
                 <ion-label color="dark">Poids</ion-label>
-                <ion-input type="text" name="weight" placeholder="(kg)" [(ngModel)]="weight"></ion-input>
+                <ion-input type="number" name="weight" placeholder="(kg)" [(ngModel)]="weight"></ion-input>
             </ion-item>
             
             <ion-item *ngIf="lvmassIsKnown">
                 <ion-label color="dark">Masse VG</ion-label>
-                <ion-input type="text" name="lvmass" placeholder="(g/m²)" [(ngModel)]="lvmass"></ion-input>
+                <ion-input type="number" name="lvmass" placeholder="(g/m²)" [(ngModel)]="lvmass"></ion-input>
             </ion-item>
         
         </ion-list>
@@ -86,7 +86,7 @@
     <div id="item_description">
         
         <p>
-            Le score PH-HFpEF Group est un outil d'aide à la classification non-invasive du groupe d'hypertension pulmonaire chez les patients porteurs d'hypertension pulmonaire avec une FEVG préservée (> 50 %). Un score supérieur ou égal à 7 a une spécificité > 95% pour l'appartenance au groupe 2 (insuffisance cardiaque gauche).
+            Le score PH-HFpEF Group (ou score de Berthelot) est un outil d'aide à la classification non-invasive du groupe d'hypertension pulmonaire chez les patients porteurs d'hypertension pulmonaire avec une FEVG préservée (> 50 %). Un score supérieur ou égal à 7 a une spécificité > 95% pour l'appartenance au groupe 2 (insuffisance cardiaque gauche).
         </p>
         <p id="item_source">
             Source :

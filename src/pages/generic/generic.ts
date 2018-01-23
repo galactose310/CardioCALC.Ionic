@@ -25,19 +25,19 @@ export class Score
     }
     
     // Check if each data from dataToValidate is valid (not an empty number)
-    validate_data (): boolean
+    validate_data (alert: boolean = true): boolean
     {
         for (let i = 0; i < this.dataToValidate.length; i++)
         {
             if (this.empty(this.dataToValidate[i]))
             {
-                this.alert("Erreur", "Remplissez tous les champs.", "toast");
+                if (alert) this.alert("Erreur", "Remplissez tous les champs.", "toast");
                 return false;
             }
             
             else if (isNaN(this.dataToValidate[i]))
             {
-                this.alert("Erreur", "N'utilisez que des nombres.", "toast");
+                if (alert) this.alert("Erreur", "N'utilisez que des nombres.", "toast");
                 return false;
             }
         }

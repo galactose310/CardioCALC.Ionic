@@ -76,3 +76,21 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+/*
+$alert-md-border-radius: 13px;
+$alert-md-head-padding-top: 20px;
+$alert-md-head-padding-bottom: 12px;
+$alert-md-head-padding-end: 16px;
+$alert-md-head-padding-start: 16px;
+$alert-md-title-font-size: 17px;
+$alert-md-sub-title-font-size: 14px;
+$alert-md-head-text-align: center;
+*/
+$alert-md-border-radius: 10px;
+$alert-md-head-padding-top: 20px;
+$alert-md-head-padding-start: 14px;
+$alert-md-head-padding-end: 14px;
+$alert-md-title-font-size: 20px;
+$alert-md-sub-title-font-size: 15px;
+$alert-md-message-padding-bottom: 20px;
+$alert-md-box-shadow: 0 10px 10px rgba(0, 0, 0, .4);

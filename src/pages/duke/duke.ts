@@ -45,7 +45,8 @@ export class DukePage extends Score {
             // Micro-organism description
             { item: "typicalMicroOrganism", title: "Micro-organismes typiques", desc: "Sur au moins 2 hémocultures : Streptococcus viridans ou gallolyticus (bovis), groupe HACEK, Staphylococcus aureus ou Enterococcus en absence de foyer infectieux primitif." },
             { item: "coherentMicroOrganism", title: "Micro-organismes cohérents", desc: "Bactériémie persistante à micro-organisme compatible avec une EI : au moins 2 hémocultures espacées de > 12h, ou 3/3 hémocultures positives, ou la majorité si > 4 prélèvements (avec > 1h entre le premier et le dernier prélèvement)." },
-            { item: "coxiella", title: "Coxiella burnetii", desc: "Au moins 1 hémoculture positive pour Coxiella. burnetii, ou titre des IgG phase I > 1:800." },
+            { item: "coxiella", title: "Coxiella burnetii", desc: "Au moins 1 hémoculture positive pour Coxiella burnetii, ou titre des IgG phase I > 1:800." },
+            { item: "othermicro", title: "Autres micro-organismes", desc: "Le critère majeur pour les hémocultures n'est pas atteint. Compte pour le critère mineur <em>Preuves microbiologiques</em>." },
             
             // Imaging description
             { item: "echocardiography", title: "Echocardiographie", desc: "Végétation, ou abcès / pseudoanévrysme / fistule intracardiaque, ou perforation / anévrysme valvulaire, ou nouvelles déhiscence de prothèse valvulaire." },
@@ -88,10 +89,10 @@ export class DukePage extends Score {
                 || this.majorDukeCriteria == 2
                 || (this.majorDukeCriteria >= 1 && this.minorDukeCriteria >= 3)
                 || this.minorDukeCriteria >= 5)
-                this.set_interpretation("Endocardite infectieuse <strong>certaine</strong> : discuter le traitement au sein d'une <em>endocarditis team</em>.");
+                this.set_interpretation("Endocardite infectieuse <strong>certaine</strong> : discuter le traitement au sein d'une <em>RCP endocardite</em>.");
             
             else if ((this.majorDukeCriteria == 1 && this.minorDukeCriteria >= 1) || this.minorDukeCriteria >= 3)
-                this.set_interpretation("Endocardite infectieuse <strong>possible</strong> : poursuivre les investigations et discuter le traitement au sein d'une <em>endocarditis team</em>.");
+                this.set_interpretation("Endocardite infectieuse <strong>possible</strong> : poursuivre les investigations et discuter le traitement au sein d'une <em>RCP endocardite</em>.");
             
             else this.set_interpretation("Le diagnostic d'endocardite infectieuse est <strong>rejeté</strong> (sous réserve de l'absence d'antibiothérapie ayant duré > 4 jours avant les prélèvements).");
             

@@ -18,7 +18,8 @@ import { WellsPage } from '../pages/wells/wells';
 import { GenevaPage } from '../pages/geneva/geneva';
 import { PesiPage } from '../pages/pesi/pesi';
 import { DukePage } from '../pages/duke/duke';
-
+import { StsPage } from '../pages/sts/sts';
+import { RightcathPage } from '../pages/rightcath/rightcath';
 
 @Component({
   templateUrl: 'app.html'
@@ -27,20 +28,20 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
-  
+
   scores: Array<{title: string, component: any}>;
   calculs: Array<{title: string, component: any}>;
   aboutPage = { title: "about", component: AboutPage };
 
   constructor(public platform: Platform, public SplashScreen: SplashScreen, public StatusBar: StatusBar) {
-    
+
     (JSON.parse(localStorage.getItem("first_version_conditions_accepted")) != "true") ? this.rootPage = ConditionsPage : this.rootPage = HomePage;
-    
+
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.initializeItems();
-    
+
   }
 
   initializeApp() {
@@ -57,7 +58,7 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
-  
+
   initializeItems(): void
   {
       // used for an example of ngFor and navigation
@@ -68,11 +69,13 @@ export class MyApp {
           { title: 'HCM Risk-SCD', component: HcmsuddeathPage },
           { title: 'PESI', component: PesiPage },
           { title: 'PH-HFpEF Group', component: BerthelotPage },
+          { title: 'STS', component: StsPage },
           { title: 'Wells', component: WellsPage }
       ];
       this.calculs = [
           { title: 'Clairance de la créatinine', component: ClearancePage },
           { title: 'Critères de Duke', component: DukePage },
+          { title: 'Hémodynamique', component: RightcathPage },
           { title: 'IMC', component: BmiPage },
           { title: 'QT corrigé', component: QtintervalPage },
           { title: 'Surface corporelle', component: BodysurfacePage }
@@ -83,7 +86,7 @@ export class MyApp {
   {
       // Reset items back to all of the items
       this.initializeItems();
-      
+
       // if the value is an empty string don't filter the items
       if (ev.target.value && ev.target.value.trim() != '')
       {

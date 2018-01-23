@@ -13,108 +13,107 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content>
-    
-    <ion-toolbar>
-            <ion-segment color="primary" name="method" [(ngModel)]="method">
-                <ion-segment-button value="ckdepi">CKD-EPI</ion-segment-button>
-                <ion-segment-button value="mdrd">MDRD</ion-segment-button>
-                <ion-segment-button value="cockroft">Cockroft</ion-segment-button>
-            </ion-segment>
-    </ion-toolbar>
-    
-    <div padding>
+<ion-content padding>
+	
+    <ion-list no-lines>
         
-        <form (ngSubmit)="display();">
-            
-            <ion-list no-lines>
-                
-                <ion-list radio-group name="sexFemale" [(ngModel)]="sexFemale" no-lines class="no-padding">
-                    <ion-item>
-                        <ion-label>Homme</ion-label>
-                        <ion-radio [value]="false" item-end></ion-radio>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label>Femme</ion-label>
-                        <ion-radio [value]="true" item-end></ion-radio>
-                    </ion-item>
-                </ion-list>
-                
-                <ion-item>
-                    <ion-label color="dark">Age</ion-label>
-                    <ion-input type="text" placeholder="(années)" name="age" [(ngModel)]="age"></ion-input>
-                </ion-item>
-                
-                <ion-item>
-                    <ion-label color="dark">Créatinine</ion-label>
-                    <ion-input type="text" name="creatinine" [(ngModel)]="creatinine"></ion-input>
-                </ion-item>
-                
-                <ion-item>
-                    <ion-label color="dark"></ion-label>
-                    <ion-select interface="popover" name="creatInMol" [(ngModel)]="creatInMol">
-                        <ion-option [value]="true" selected>(µmol/l)</ion-option>
-                        <ion-option [value]="false">(mg/l)</ion-option>
-                    </ion-select>
-                </ion-item>
-                
-                <ion-item *ngIf="method == 'cockroft'">
-                    <ion-label color="dark">Poids</ion-label>
-                    <ion-input type="text" placeholder="(kg)" name="weight" [(ngModel)]="weight"></ion-input>
-                </ion-item>
-                
-                <ion-item *ngIf="method != 'cockroft'">
-                    <ion-label>Ethnie africaine</ion-label>
-                    <ion-toggle color="secondary" (ionChange)="ethnicity_toggle();"></ion-toggle>
-                </ion-item>
-                
-            </ion-list>
-            
-            <button ion-button type="submit">CALCULER</button>
-            
-        </form>
+        <ion-list radio-group name="sexFemale" [(ngModel)]="sexFemale" no-lines class="no-padding">
+            <ion-item>
+                <ion-label>Homme</ion-label>
+                <ion-radio [value]="false" item-end></ion-radio>
+            </ion-item>
+            <ion-item>
+                <ion-label>Femme</ion-label>
+                <ion-radio [value]="true" item-end></ion-radio>
+            </ion-item>
+        </ion-list>
         
-        <div id="item_description">
-            <p>
-                La clairance de la créatinine sérique permet d'évaluer la fonction rénale en estimant le débit de filtration glomérulaire. Résultats valides pour une mesure standardisée (IDMS : Isotope Dilution Mass Spectrometry) de la créatinine.
-            </p>
-            <p id="item_source">
-                Source (CKD-EPI) :
-                <a href="http://dx.doi.org/10.7326/0003-4819-150-9-200905050-00006">
-                    A new equation to estimate glomerular filtration rate.
-                    Levey AS, et al. Annals of Internal Medicine, 2009;150(9):604-613.
-                </a>
-            </p>
-            <p id="item_source">
-                Source (MDRD) :
-                <a href="http://dx.doi.org/10.7326/0003-4819-130-6-199903160-00002">
-                    A more accurate method to estimate glomerular filtration rate from serum creatinine: a new prediction equation.
-                    Levey AS, et al. Annals of Internal Medicine, 1999;130(6):461–70.
-                </a>
-            </p>
-            <p id="item_source">
-                Source (Cockroft) :
-                <a href="https://doi.org/10.1159/000180580">
-                    Prediction of creatinine clearance from serum creatinine.
-                    Cockcroft DW, Gault MH. Nephron, 1976;16(1):31-41.
-                </a>
-            </p>
-            <p id="item_source">
-                Recommandations françaises :
-                <a href="http://www.sfndt.org/sn/PDF/enephro/recommandations/HAS/2012/MRC-2012.pdf">
-                    Maladie rénale chronique de l'adulte.
-                    Guide de la Haute Autorité de Santé (2012).
-                </a>
-            </p>
-            <p id="item_source">
-                Recommandations internationales :
-                <a href="http://dx.doi.org/10.1016/j.kisu.2017.04.001">
-                    KDIGO 2017 clinical practice guideline update for the diagnosis, evaluation, prevention, and treatment of chronic kidney disease - mineral and bone disorder (CKD-MBD).
-                    KDIGO Work Group. Kidney International Supplements, 2017;7:1–591.
-                </a>
-            </p>
-        </div>
+        <ion-item>
+            <ion-label color="dark">Age</ion-label>
+            <ion-input type="number" placeholder="(années)" name="age" [(ngModel)]="age"></ion-input>
+        </ion-item>
         
+        <ion-item>
+            <ion-label color="dark">Créatinine</ion-label>
+            <ion-input type="number" name="creatinine" [(ngModel)]="creatinine"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+            <ion-label color="dark"></ion-label>
+            <ion-select interface="popover" name="creatInMol" [(ngModel)]="creatInMol">
+                <ion-option [value]="true" selected>(µmol/l)</ion-option>
+                <ion-option [value]="false">(mg/l)</ion-option>
+            </ion-select>
+        </ion-item>
+        
+        <ion-item>
+            <ion-label color="dark">Poids</ion-label>
+            <ion-input type="number" placeholder="(kg)" name="weight" [(ngModel)]="weight"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+            <ion-label>Ethnie africaine</ion-label>
+            <ion-toggle color="secondary" name="ethnicityAfrican" [(ngModel)]="ethnicityAfrican"></ion-toggle>
+        </ion-item>
+        
+    </ion-list>
+	
+	<ion-title class=results_title>Débit de filtration (ml/min)</ion-title>
+	<h1></h1>
+	<ion-list no-lines>
+		<ion-item>CKD-EPI<ion-badge item-end mode="ios">{{ckdepi_formula()}}</ion-badge></ion-item>
+		<ion-item>MDRD<ion-badge item-end mode="ios">{{mdrd_formula()}}</ion-badge></ion-item>
+		<ion-item>Cockroft & Gault<ion-badge item-end mode="ios">{{cockroft_formula()}}</ion-badge></ion-item>
+	</ion-list>
+	
+	<div text-center class="results">
+		<p *ngIf="ckdepi_formula() >= 90"><strong>Stade 1.</strong> Fonction rénale préservée ou augmentée.</p>
+		<p *ngIf="ckdepi_formula() < 90 && ckdepi_formula() >= 60"><strong>Stade 2.</strong> Insuffisance rénale légère.</p>
+		<p *ngIf="ckdepi_formula() < 60 && ckdepi_formula() >= 45"><strong>Stade 3a.</strong> Insuffisance rénale légère à modérée.</p>
+		<p *ngIf="ckdepi_formula() < 45 && ckdepi_formula() >= 30"><strong>Stade 3b.</strong> Insuffisance rénale modérée à sévère.</p>
+		<p *ngIf="ckdepi_formula() < 30 && ckdepi_formula() >= 15"><strong>Stade 4.</strong> Insuffisance rénale sévère.</p>
+		<p *ngIf="ckdepi_formula() < 15 && ckdepi_formula() > 0"><strong>Stade 5.</strong> Insuffisance rénale terminale.</p>
+	</div>
+	
+    <div id="item_description">
+        <p>
+            La clairance de la créatinine sérique permet d'évaluer la fonction rénale en estimant le débit de filtration glomérulaire. Résultats valides pour une mesure standardisée (IDMS : Isotope Dilution Mass Spectrometry) de la créatinine.
+        </p>
+        <p id="item_source">
+            Source (CKD-EPI) :
+            <a href="http://dx.doi.org/10.7326/0003-4819-150-9-200905050-00006">
+                A new equation to estimate glomerular filtration rate.
+                Levey AS, et al. Annals of Internal Medicine, 2009;150(9):604-613.
+            </a>
+        </p>
+        <p id="item_source">
+            Source (MDRD) :
+            <a href="http://dx.doi.org/10.7326/0003-4819-130-6-199903160-00002">
+                A more accurate method to estimate glomerular filtration rate from serum creatinine: a new prediction equation.
+                Levey AS, et al. Annals of Internal Medicine, 1999;130(6):461–70.
+            </a>
+        </p>
+        <p id="item_source">
+            Source (Cockroft) :
+            <a href="https://doi.org/10.1159/000180580">
+                Prediction of creatinine clearance from serum creatinine.
+                Cockcroft DW, Gault MH. Nephron, 1976;16(1):31-41.
+            </a>
+        </p>
+        <p id="item_source">
+            Recommandations françaises :
+            <a href="http://www.sfndt.org/sn/PDF/enephro/recommandations/HAS/2012/MRC-2012.pdf">
+                Maladie rénale chronique de l'adulte.
+                Guide de la Haute Autorité de Santé (2012).
+            </a>
+        </p>
+        <p id="item_source">
+            Recommandations internationales :
+            <a href="http://dx.doi.org/10.1016/j.kisu.2017.04.001">
+                KDIGO 2017 clinical practice guideline update for the diagnosis, evaluation, prevention, and treatment of chronic kidney disease - mineral and bone disorder (CKD-MBD).
+                KDIGO Work Group. Kidney International Supplements, 2017;7:1–591.
+            </a>
+        </p>
     </div>
     
 </ion-content>

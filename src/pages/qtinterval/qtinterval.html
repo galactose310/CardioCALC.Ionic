@@ -22,12 +22,12 @@
             
             <ion-item>
                 <ion-label color="dark">QT mesuré</ion-label>
-                <ion-input type="text" placeholder="(ms)" name="qtinterval" [(ngModel)]="qtinterval"></ion-input>
+                <ion-input type="number" placeholder="(ms)" name="qtinterval" [(ngModel)]="qtinterval"></ion-input>
             </ion-item>
             
             <ion-item *ngIf="method == 'rr'">
                 <ion-label color="dark">Intervalle RR</ion-label>
-                <ion-input type="text" name="rrinterval" [(ngModel)]="rrinterval"></ion-input>
+                <ion-input type="number" name="rrinterval" [(ngModel)]="rrinterval"></ion-input>
             </ion-item>
             
             <ion-item *ngIf="method == 'rr'">
@@ -41,7 +41,7 @@
             
             <ion-item *ngIf="method == 'hr'">
                 <ion-label color="dark">Fréquence cardiaque</ion-label>
-                <ion-input type="text" placeholder="(batt/min)" name="heartRate" [(ngModel)]="heartRate"></ion-input>
+                <ion-input type="number" placeholder="(batt/min)" name="heartRate" [(ngModel)]="heartRate"></ion-input>
             </ion-item>
             
             <ion-item>
@@ -58,7 +58,7 @@
             
             <ion-item *ngIf="largeqrs">
                 <ion-label color="dark">Largeur des QRS</ion-label>
-                <ion-input type="text" placeholder="(ms)" name="qrsinterval" [(ngModel)]="qrsinterval"></ion-input>
+                <ion-input type="number" placeholder="(ms)" name="qrsinterval" [(ngModel)]="qrsinterval"></ion-input>
             </ion-item>
             
             <ion-list radio-group name="sexcoefficient" [(ngModel)]="sexcoefficient" no-lines class="no-padding" *ngIf="largeqrs">

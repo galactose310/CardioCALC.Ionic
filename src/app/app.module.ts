@@ -19,6 +19,8 @@ import { WellsPage } from '../pages/wells/wells';
 import { GenevaPage } from '../pages/geneva/geneva';
 import { PesiPage } from '../pages/pesi/pesi';
 import { DukePage } from '../pages/duke/duke';
+import { StsPage } from '../pages/sts/sts';
+import { RightcathPage } from '../pages/rightcath/rightcath';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -40,6 +42,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     GenevaPage,
     PesiPage,
     DukePage,
+    StsPage,
+    RightcathPage,
     AboutPage
   ],
   imports: [
@@ -63,6 +67,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     GenevaPage,
     PesiPage,
     DukePage,
+    StsPage,
+    RightcathPage,
     AboutPage
   ],
   providers: [
