@@ -5,12 +5,12 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar>
+    <ion-toolbar>
         <button ion-button menuToggle>
             <ion-icon color="primary" name="menu"></ion-icon>
         </button>
-        <ion-title>Indice de masse corporelle</ion-title>
-    </ion-navbar>
+        <ion-title>IMC & Poids idéal</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
@@ -19,6 +19,11 @@
         
         <ion-list no-lines>
             
+			<ion-segment color="primary" name="sexFemale" [(ngModel)]="sexFemale">
+				<ion-segment-button [value]="false">Homme</ion-segment-button>
+				<ion-segment-button [value]="true">Femme</ion-segment-button>
+			</ion-segment>
+			
             <ion-item>
                 <ion-label color="dark">Poids</ion-label>
                 <ion-input type="number" name="weight" placeholder="(kg)" [(ngModel)]="weight"></ion-input>
@@ -40,6 +45,20 @@
             Source :
             <a href="http://apps.who.int/bmi/index.jsp?introPage=intro_3.html">
                 Classification de l'IMC selon l'Organisation Mondiale de la Santé.
+            </a>
+        </p>
+        <p id="item_source">
+            Poids idéal (femme) :
+            <a href="https://www.researchgate.net/deref/http%3A%2F%2Fwww.ingentaselect.com%2Frpsv%2Fcgi-bin%2Flinker%3Fext%3Da%26reqidx%3D0002-9289%281983%2940L.1016%5Baid%3D6802988%5D">
+                Determination of ideal body weight for drug dosage calculations.
+				Robinson JD, et al. Am J Hosp Pharmacology, 1983;40(6):1016-9.
+            </a>
+        </p>
+        <p id="item_source">
+            Poids idéal (homme) :
+            <a href="https://scholar.google.com/scholar_lookup?hl=en&publication_year=1974&pages=650-5&author=BJ+Devine&title=Gentamicin+therapy">
+                Gentamicin therapy.
+				Devine, BJ. Drug Intell Clin Pharm, 1974;8:650–5.
             </a>
         </p>
     </div>

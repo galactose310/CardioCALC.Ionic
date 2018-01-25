@@ -15,81 +15,48 @@ import { Score } from '../generic/generic';
 
 export class ChadsvascPage extends Score {
     
-    heartFailure: number = 0;
-    hypertension: number = 0;
-    ageOver65: number = 0;
-    diabetes: number = 0;
-    stroke: number = 0;
-    vascular: number = 0;
-    ageOver75: number = 0;
-    female: number = 0;
+    heartFailure: boolean = false;
+    hypertension: boolean = false;
+    ageOver65: boolean = false;
+    diabetes: boolean = false;
+    stroke: boolean = false;
+    vascular: boolean = false;
+    ageOver75: boolean = false;
+    female: boolean = false;
     riskRate: number = 0;
     
     constructor(public alertCtrl: AlertController, public toastCtrl: ToastController)
     {
         super(alertCtrl, toastCtrl);
-        this.set_score_name("Score CHA2DS2-VASc");
+        this.set_score_name("Score CHA<sub>2</sub>DS<sub>2</sub>-VASc");
         
         this.helpItems = [
                 {item: "heartFailure", title: "Insuffisance cardiaque", desc: "Antécédent d'insuffisance cardiaque congestive ou FEVG < 45 %."}
             ];
     }
     
-    // Change value if toggled
-    hfail_toggle (): void
-    {
-        (this.heartFailure == 0) ? this.heartFailure = 1 : this.heartFailure = 0;
-    }
+	// Toggle age65 if age75 if true
+	age75_toggle(): void
+	{
+		if (this.ageOver75) this.ageOver65 = true;
+	}
     
-    // Change value if toggled
-    htens_toggle (): void
-    {
-        (this.hypertension == 0) ? this.hypertension = 1 : this.hypertension = 0;
-    }
-    
-    // Change value if toggled
-    age65_toggle (): void
-    {
-        (this.ageOver65 == 0) ? this.ageOver65 = 1 : this.ageOver65 = 0;
-    }
-    
-    // Change diabetes value if toggled
-    diabetes_toggle (): void
-    {
-        (this.diabetes == 0) ? this.diabetes = 1 : this.diabetes = 0;
-    }
-    
-    // Change value if toggled
-    stroke_toggle (): void
-    {
-        (this.stroke == 0) ? this.stroke = 1 : this.stroke = 0;
-    }
-    
-    // Change value if toggled
-    vascular_toggle (): void
-    {
-        (this.vascular == 0) ? this.vascular = 1 : this.vascular = 0;
-    }
-    
-    // Change value if toggled
-    age75_toggle (): void
-    {
-        (this.ageOver75 == 0) ? this.ageOver75 = 1 : this.ageOver75 = 0;
-    }
-    
-    // Change value if toggled
-    female_toggle (): void
-    {
-        (this.female == 0) ? this.female = 1 : this.female = 0;
-    }
-    
+	// Toggle age75 if age65 if false
+	age65_toggle(): void
+	{
+		if (!this.ageOver65) this.ageOver75 = false;
+	}
+	
     // Calculate the score
     calculate (): void
     {
-        this.set_score_result (this.heartFailure + this.hypertension + this.ageOver65 + this.diabetes + (2 * this.stroke)
-                + this.vascular + this.ageOver75 + this.female);
-        if (this.ageOver75 == 1 && this.ageOver65 == 0) this.set_score_result(this.scoreResult + 1);
-        if (this.scoreResult == 1 && this.female == 1) this.set_score_result(0);
+		// this.stroke twice to count for 2 points
+		this.dataToCount = [this.heartFailure, this.hypertension, this.ageOver65, this.diabetes, this.stroke, this.stroke, this.vascular, this.ageOver75, this.female];
+		
+		this.set_score_result(this.count_true());
+
+		if (this.ageOver75 && !this.ageOver65) this.set_score_result(this.scoreResult + 1);
+        if (this.scoreResult == 1 && this.female) this.set_score_result(0);
     }
     
     // Display score result after calculating it

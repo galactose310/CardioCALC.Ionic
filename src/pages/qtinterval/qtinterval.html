@@ -5,12 +5,12 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar>
+    <ion-toolbar>
         <button ion-button menuToggle>
             <ion-icon color="primary" name="menu"></ion-icon>
         </button>
         <ion-title>Calcul du QT corrigé</ion-title>
-    </ion-navbar>
+    </ion-toolbar>
 </ion-header>
 
 
@@ -27,7 +27,7 @@
             
             <ion-item *ngIf="method == 'rr'">
                 <ion-label color="dark">Intervalle RR</ion-label>
-                <ion-input type="number" name="rrinterval" [(ngModel)]="rrinterval"></ion-input>
+                <ion-input type="number" placeholder="0" name="rrinterval" [(ngModel)]="rrinterval"></ion-input>
             </ion-item>
             
             <ion-item *ngIf="method == 'rr'">

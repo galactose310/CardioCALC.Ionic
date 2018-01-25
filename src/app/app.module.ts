@@ -21,6 +21,12 @@ import { PesiPage } from '../pages/pesi/pesi';
 import { DukePage } from '../pages/duke/duke';
 import { StsPage } from '../pages/sts/sts';
 import { RightcathPage } from '../pages/rightcath/rightcath';
+import { ConvertPage } from '../pages/convert/convert';
+import { HemorrhagesPage } from '../pages/hemorrhages/hemorrhages';
+import { FeureaPage } from '../pages/feurea/feurea';
+import { AmyloidosisPage } from '../pages/amyloidosis/amyloidosis';
+import { TachycardiaPage } from '../pages/tachycardia/tachycardia';
+//import { GracePage } from '../pages/grace/grace';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -44,7 +50,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     DukePage,
     StsPage,
     RightcathPage,
-    AboutPage
+    AboutPage,
+	ConvertPage,
+	HemorrhagesPage,
+	FeureaPage,
+	AmyloidosisPage,
+	//GracePage,
+	TachycardiaPage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +81,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     DukePage,
     StsPage,
     RightcathPage,
-    AboutPage
+    AboutPage,
+	ConvertPage,
+	HemorrhagesPage,
+	FeureaPage,
+	AmyloidosisPage,
+	//GracePage,
+	TachycardiaPage
   ],
   providers: [
       SplashScreen,

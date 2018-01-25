@@ -5,12 +5,12 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar>
+    <ion-toolbar>
         <button ion-button menuToggle>
             <ion-icon color="primary" name="menu"></ion-icon>
         </button>
         <ion-title>Clairance de la créatinine</ion-title>
-    </ion-navbar>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
@@ -35,7 +35,7 @@
         
         <ion-item>
             <ion-label color="dark">Créatinine</ion-label>
-            <ion-input type="number" name="creatinine" [(ngModel)]="creatinine"></ion-input>
+            <ion-input type="number" placeholder="0" name="creatinine" [(ngModel)]="creatinine"></ion-input>
         </ion-item>
         
         <ion-item>

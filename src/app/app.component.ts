@@ -20,82 +20,96 @@ import { PesiPage } from '../pages/pesi/pesi';
 import { DukePage } from '../pages/duke/duke';
 import { StsPage } from '../pages/sts/sts';
 import { RightcathPage } from '../pages/rightcath/rightcath';
+import { ConvertPage } from '../pages/convert/convert';
+import { HemorrhagesPage } from '../pages/hemorrhages/hemorrhages';
+import { FeureaPage } from '../pages/feurea/feurea';
+import { AmyloidosisPage } from '../pages/amyloidosis/amyloidosis';
+import { TachycardiaPage } from '../pages/tachycardia/tachycardia';
+//import { GracePage } from '../pages/grace/grace';
 
 @Component({
   templateUrl: 'app.html'
 })
+
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
+	
+	@ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+	rootPage: any = HomePage;
 
-  scores: Array<{title: string, component: any}>;
-  calculs: Array<{title: string, component: any}>;
-  aboutPage = { title: "about", component: AboutPage };
+	scores: Array<{title: string, component: any}>;
+	calculs: Array<{title: string, component: any}>;
+	aboutPage = { title: "about", component: AboutPage };
 
-  constructor(public platform: Platform, public SplashScreen: SplashScreen, public StatusBar: StatusBar) {
+	constructor(public platform: Platform, public SplashScreen: SplashScreen, public StatusBar: StatusBar)
+	{
+		if (JSON.parse(localStorage.getItem("first_version_conditions_accepted")) != "true") this.rootPage = ConditionsPage;
+		
+		this.initializeApp();
+		
+		// used for an example of ngFor and navigation
+		this.initializeItems();
+	}
 
-    (JSON.parse(localStorage.getItem("first_version_conditions_accepted")) != "true") ? this.rootPage = ConditionsPage : this.rootPage = HomePage;
+	initializeApp()
+	{
+		this.platform.ready().then(() => {
+			// Okay, so the platform is ready and our plugins are available.
+			// Here you can do any higher level native things you might need.
+			this.StatusBar.styleDefault();
+			this.SplashScreen.hide();
+		});
+	}
 
-    this.initializeApp();
+	openPage(page) {
+		// Reset the content nav to have just this page
+		// we wouldn't want the back button to show in this scenario
+		this.nav.push(page.component);
+	}
 
-    // used for an example of ngFor and navigation
-    this.initializeItems();
+	initializeItems(): void
+	{
+		// used for an example of ngFor and navigation
+		this.scores = [
+			{ title: 'Amylose cardiaque', component: AmyloidosisPage },
+			{ title: 'CHA2DS2-VASc', component: ChadsvascPage },
+			{ title: 'Genève', component: GenevaPage },
+			{ title: 'HAS-BLED', component: HasbledPage },
+			{ title: 'HCM Risk-SCD', component: HcmsuddeathPage },
+			{ title: 'HEMORR2HAGES', component: HemorrhagesPage },
+			{ title: 'PESI', component: PesiPage },
+			{ title: 'PH-HFpEF Group', component: BerthelotPage },
+			{ title: 'STS', component: StsPage },
+			{ title: 'Ventricular Tachycardia', component: TachycardiaPage },
+			{ title: 'Wells', component: WellsPage }
+		];
+		
+		this.calculs = [
+			{ title: 'Clairance de la créatinine', component: ClearancePage },
+			{ title: 'Conversions d\'unités', component: ConvertPage },
+			{ title: 'Critères de Duke', component: DukePage },
+			{ title: 'Fraction d\'excrétion urée', component: FeureaPage },
+			{ title: 'Hémodynamique', component: RightcathPage },
+			{ title: 'IMC & Poids idéal', component: BmiPage },
+			{ title: 'QT corrigé', component: QtintervalPage },
+			{ title: 'Surface corporelle', component: BodysurfacePage }
+		];
+	}
 
-  }
+	getItems(ev): void
+	{
+		// Reset items back to all of the items
+		this.initializeItems();
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.StatusBar.styleDefault();
-      this.SplashScreen.hide();
-    });
-  }
-
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
-  }
-
-  initializeItems(): void
-  {
-      // used for an example of ngFor and navigation
-      this.scores = [
-          { title: 'CHA2DS2-VASc', component: ChadsvascPage },
-          { title: 'Genève', component: GenevaPage },
-          { title: 'HAS-BLED', component: HasbledPage },
-          { title: 'HCM Risk-SCD', component: HcmsuddeathPage },
-          { title: 'PESI', component: PesiPage },
-          { title: 'PH-HFpEF Group', component: BerthelotPage },
-          { title: 'STS', component: StsPage },
-          { title: 'Wells', component: WellsPage }
-      ];
-      this.calculs = [
-          { title: 'Clairance de la créatinine', component: ClearancePage },
-          { title: 'Critères de Duke', component: DukePage },
-          { title: 'Hémodynamique', component: RightcathPage },
-          { title: 'IMC', component: BmiPage },
-          { title: 'QT corrigé', component: QtintervalPage },
-          { title: 'Surface corporelle', component: BodysurfacePage }
-      ];
-  }
-
-  getItems(ev): void
-  {
-      // Reset items back to all of the items
-      this.initializeItems();
-
-      // if the value is an empty string don't filter the items
-      if (ev.target.value && ev.target.value.trim() != '')
-      {
-          this.scores = this.scores.filter((score) => {
-          return (score.title.toLowerCase().indexOf(ev.target.value.toLowerCase()) > -1);
-          })
-          this.calculs = this.calculs.filter((calcul) => {
-          return (calcul.title.toLowerCase().indexOf(ev.target.value.toLowerCase()) > -1);
-          })
-      }
-  }
+		// if the value is an empty string don't filter the items
+		if (ev.target.value && ev.target.value.trim() != '')
+		{
+			this.scores = this.scores.filter((score) => {
+				return (score.title.toLowerCase().indexOf(ev.target.value.toLowerCase()) > -1);
+			})
+			this.calculs = this.calculs.filter((calcul) => {
+				return (calcul.title.toLowerCase().indexOf(ev.target.value.toLowerCase()) > -1);
+			})
+		}
+	}
 }

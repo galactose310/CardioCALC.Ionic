@@ -1,0 +1,102 @@
+<!--
+  Generated template for the ConvertPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-toolbar>
+        <button ion-button menuToggle>
+            <ion-icon color="primary" name="menu"></ion-icon>
+        </button>
+        <ion-title>Conversions d'unités</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+    <ion-list class="menu-list" no-lines>
+		<ion-list-header mode="ios" class="menu-list-header">Cholestérol</ion-list-header>
+		<ion-item>
+			<ion-label color="dark">g/l</ion-label>
+			<ion-input item-end type="number" placeholder="0" name="cholesterol_g" [(ngModel)]="cholesterol_g" (input)="cholesterol('g')"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="dark">mmol/l</ion-label>
+			<ion-input item-end type="number" placeholder="0" name="cholesterol_mmol" [(ngModel)]="cholesterol_mmol" (input)="cholesterol('mmol')"></ion-input>
+		</ion-item>
+	</ion-list>
+	
+    <ion-list class="menu-list" no-lines>
+		<ion-list-header mode="ios" class="menu-list-header">Créatinine</ion-list-header>
+		<ion-item>
+			<ion-label color="dark">mg/l</ion-label>
+			<ion-input item-end type="number" placeholder="0" name="creatinine_g" [(ngModel)]="creatinine_g" (input)="creatinine('mg')"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="dark">µmol/l</ion-label>
+			<ion-input item-end type="number" placeholder="0" name="creatinine_mmol" [(ngModel)]="creatinine_mmol" (input)="creatinine('mmol')"></ion-input>
+		</ion-item>
+    </ion-list>
+	
+    <ion-list class="menu-list" no-lines>
+		<ion-list-header mode="ios" class="menu-list-header">Glycémie</ion-list-header>
+		<ion-item>
+			<ion-label color="dark">g/l</ion-label>
+			<ion-input item-end type="number" placeholder="0" name="glycemia_g" [(ngModel)]="glycemia_g" (input)="glycemia('g')"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="dark">mmol/l</ion-label>
+			<ion-input item-end type="number" placeholder="0" name="glycemia_mmol" [(ngModel)]="glycemia_mmol" (input)="glycemia('mmol')"></ion-input>
+		</ion-item>
+	</ion-list>
+	
+    <ion-list class="menu-list" no-lines>
+        <ion-list-header mode="ios" class="menu-list-header">Périodes</ion-list-header>
+		<ion-item>
+			<ion-label color="dark">ms</ion-label>
+			<ion-input item-end type="number" placeholder="0" name="time_ms" [(ngModel)]="time_ms" (input)="time('ms')"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="dark">batt/min</ion-label>
+			<ion-input item-end type="number" placeholder="0" name="time_bpm" [(ngModel)]="time_bpm" (input)="time('bpm')"></ion-input>
+		</ion-item>
+	</ion-list>
+	
+    <ion-list class="menu-list" no-lines>
+        <ion-list-header mode="ios" class="menu-list-header">Pressions</ion-list-header>
+		<ion-item>
+			<ion-label color="dark">kPa</ion-label>
+			<ion-input item-end type="number" placeholder="0" name="pressure_kpa" [(ngModel)]="pressure_kpa" (input)="pressure('kpa')"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="dark">mmHg</ion-label>
+			<ion-input item-end type="number" placeholder="0" name="pressure_mmhg" [(ngModel)]="pressure_mmhg" (input)="pressure('mmhg')"></ion-input>
+		</ion-item>
+	</ion-list>
+	
+    <ion-list class="menu-list" no-lines>
+        <ion-list-header mode="ios" class="menu-list-header">Protéines / Albumine</ion-list-header>
+		<ion-item>
+			<ion-label color="dark">g/l</ion-label>
+			<ion-input item-end type="number" placeholder="0" name="proteines_g" [(ngModel)]="proteines_g" (input)="proteines('g')"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="dark">µmol/l</ion-label>
+			<ion-input item-end type="number" placeholder="0" name="proteines_mmol" [(ngModel)]="proteines_mmol" (input)="proteines('mmol')"></ion-input>
+		</ion-item>
+	</ion-list>
+	
+    <ion-list class="menu-list" no-lines>
+		<ion-list-header mode="ios" class="menu-list-header">Triglycérides</ion-list-header>
+		<ion-item>
+			<ion-label color="dark">g/l</ion-label>
+			<ion-input item-end type="number" placeholder="0" name="triglycerides_g" [(ngModel)]="triglycerides_g" (input)="triglycerides('g')"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="dark">mmol/l</ion-label>
+			<ion-input item-end type="number" placeholder="0" name="triglycerides_mmol" [(ngModel)]="triglycerides_mmol" (input)="triglycerides('mmol')"></ion-input>
+		</ion-item>
+    </ion-list>
+    
+</ion-content>

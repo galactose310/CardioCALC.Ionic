@@ -5,12 +5,12 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar>
+    <ion-toolbar>
         <button ion-button menuToggle>
             <ion-icon color="primary" name="menu"></ion-icon>
         </button>
         <ion-title>HCM Risk-SCD</ion-title>
-    </ion-navbar>
+    </ion-toolbar>
 </ion-header>
 
 
@@ -20,25 +20,33 @@
         
         <ion-list no-lines>
             
-            <ion-item>
-                <ion-label color="dark">Age</ion-label>
-                <ion-input type="number" name="age" placeholder="(années)" [(ngModel)]="age"></ion-input>
-            </ion-item>
+			<ion-item><ion-label color="dark" class="range-label">Age (années)</ion-label></ion-item>
+			<ion-item class="range">
+				<ion-range color="primary" min=16 max=80 name="age" [(ngModel)]="age" pin>
+					<ion-badge range-right mode="ios">{{age}}</ion-badge>
+				</ion-range>
+			</ion-item>
             
-            <ion-item>
-                <ion-label color="dark">Epaisseur VG</ion-label>
-                <ion-input type="number" name="lvThickness" placeholder="(mm)" [(ngModel)]="lvThickness"></ion-input>
-            </ion-item>
+			<ion-item><ion-label color="dark" class="range-label">Epaisseur VG (mm)</ion-label></ion-item>
+			<ion-item class="range">
+				<ion-range color="primary" min=10 max=35 name="lvThickness" [(ngModel)]="lvThickness" pin>
+					<ion-badge range-right mode="ios">{{lvThickness}}</ion-badge>
+				</ion-range>
+			</ion-item>
             
-            <ion-item>
-                <ion-label color="dark">Diamètre OG</ion-label>
-                <ion-input type="number" name="latriumDiam" placeholder="(mm)" [(ngModel)]="latriumDiam"></ion-input>
-            </ion-item>
+			<ion-item><ion-label color="dark" class="range-label">Diamètre OG (mm)</ion-label></ion-item>
+			<ion-item class="range">
+				<ion-range color="primary" min=28 max=67 name="latriumDiam" [(ngModel)]="latriumDiam" pin>
+					<ion-badge range-right mode="ios">{{latriumDiam}}</ion-badge>
+				</ion-range>
+			</ion-item>
             
-            <ion-item>
-                <ion-label color="dark">Gradient intra-VG</ion-label>
-                <ion-input type="number" name="lvgradient" placeholder="(mmHg)" [(ngModel)]="lvgradient"></ion-input>
-            </ion-item>
+			<ion-item><ion-label color="dark" class="range-label">Gradient intra-VG (mmHg)</ion-label></ion-item>
+			<ion-item class="range">
+				<ion-range color="primary" min=2 max=154 name="lvgradient" [(ngModel)]="lvgradient" pin>
+					<ion-badge range-right mode="ios">{{lvgradient}}</ion-badge>
+				</ion-range>
+			</ion-item>
             
             <ion-item>
                 <ion-label color="dark">Mort subite familiale</ion-label>

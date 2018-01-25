@@ -16,6 +16,12 @@ import { PesiPage } from '../pesi/pesi';
 import { DukePage } from '../duke/duke';
 import { StsPage } from '../sts/sts';
 import { RightcathPage } from '../rightcath/rightcath';
+import { ConvertPage } from '../convert/convert';
+import { HemorrhagesPage } from '../hemorrhages/hemorrhages';
+import { FeureaPage } from '../feurea/feurea';
+import { AmyloidosisPage } from '../amyloidosis/amyloidosis';
+import { TachycardiaPage } from '../tachycardia/tachycardia';
+//import { GracePage } from '../grace/grace';
 
 /**
  * Generated class for the HomePage page.
@@ -43,27 +49,32 @@ export class HomePage {
 
     openPage(page)
     {
-        this.navCtrl.setRoot(page.component);
+        this.navCtrl.push(page.component);
     }
 
     initializeItems(): void
     {
         // used for an example of ngFor and navigation
         this.scores = [
-            { title: 'CHA2DS2-VASc', component: ChadsvascPage },
+            { title: 'Amylose cardiaque', component: AmyloidosisPage },
+			{ title: 'CHA2DS2-VASc', component: ChadsvascPage },
             { title: 'Genève', component: GenevaPage },
             { title: 'HAS-BLED', component: HasbledPage },
             { title: 'HCM Risk-SCD', component: HcmsuddeathPage },
+			{ title: 'HEMORR2HAGES', component: HemorrhagesPage },
             { title: 'PESI', component: PesiPage },
             { title: 'PH-HFpEF Group', component: BerthelotPage },
             { title: 'STS', component: StsPage },
+			{ title: 'Ventricular Tachycardia', component: TachycardiaPage },
             { title: 'Wells', component: WellsPage }
         ];
         this.calculs = [
             { title: 'Clairance de la créatinine', component: ClearancePage },
+  		  	{ title: 'Conversions d\'unités', component: ConvertPage },
             { title: 'Critères de Duke', component: DukePage },
+            { title: 'Fraction d\'excrétion urée', component: FeureaPage },
             { title: 'Hémodynamique', component: RightcathPage },
-            { title: 'IMC', component: BmiPage },
+            { title: 'IMC & Poids idéal', component: BmiPage },
             { title: 'QT corrigé', component: QtintervalPage },
             { title: 'Surface corporelle', component: BodysurfacePage }
         ];

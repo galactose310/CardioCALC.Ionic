@@ -13,6 +13,7 @@ export class Score
     scoreInterpretation: string = null;
     
     dataToValidate: number[];
+	dataToCount: boolean[];
     helpItems: Item[];
     
     constructor (public alertCtrl: AlertController, public toastCtrl: ToastController) {}
@@ -46,6 +47,17 @@ export class Score
         return true;
     }
     
+	// Count number of boolean true value
+	count_true (): number
+	{
+		let count: number = 0;
+		for (let i = 0; i < this.dataToCount.length; i++)
+		{
+			if (this.dataToCount[i]) count++;
+		}
+		return count;
+	}
+	
     // Set score name
     set_score_name (name: string = null)
     {

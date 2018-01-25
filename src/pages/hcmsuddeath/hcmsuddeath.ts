@@ -16,10 +16,10 @@ import { Score } from '../generic/generic';
 
 export class HcmsuddeathPage extends Score {
     
-    age: number = null;
-    lvThickness: number = null;
-    latriumDiam: number = null;
-    lvgradient: number = null;
+    age: number = 16;
+    lvThickness: number = 10;
+    latriumDiam: number = 28;
+    lvgradient: number = 2;
     suddeath: number = 0;
     nsvt: number = 0;
     syncope: number = 0;
@@ -57,27 +57,6 @@ export class HcmsuddeathPage extends Score {
         // First we verify validity of sent data ==> do not calculate if unvalid
         if (this.validate_data())
         {
-            if (this.age < 16 || this.age > 80)
-            {
-                this.alert("Erreur", "L'âge doit être compris entre 16 et 80 ans.");
-                return false;
-            }
-            if (this.lvThickness < 10 || this.lvThickness > 35)
-            {
-                this.alert("Erreur", "L'épaisseur du ventricule gauche doit être comprise entre 10 et 35 mm.");
-                return false;
-            }
-            if (this.latriumDiam < 28 || this.latriumDiam > 67)
-            {
-                this.alert("Erreur", "Le diamètre de l'oreillette gauche doit être compris entre 28 et 67 mm.");
-                return false;
-            }
-            if (this.lvgradient < 2 || this.lvgradient > 154)
-            {
-                this.alert("Erreur", "Le gradient intra-VG doit être compris entre 2 et 154 mmHg.");
-                return false;
-            }
-            
             // Calculate score and round it to 2 decimals
             this.set_score_result(Math.round(100 * (
                                     1
@@ -90,7 +69,7 @@ export class HcmsuddeathPage extends Score {
                                     * 100)
                                 / 100);
 
-            return true;    
+            return true;
         }
         else return false;
     }

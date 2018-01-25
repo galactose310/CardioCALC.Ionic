@@ -7,7 +7,7 @@
                 </button>
             </ion-buttons>
             <ion-title item-start>Menu</ion-title>
-        </ion-toolbar>    
+        </ion-toolbar>
         <ion-toolbar>
             <ion-searchbar mode="ios" (ionInput)="getItems($event)"></ion-searchbar>
         </ion-toolbar>
@@ -31,4 +31,4 @@
 </ion-menu>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

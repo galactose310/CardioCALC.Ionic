@@ -1,0 +1,114 @@
+<!--
+  Generated template for the HemorrhagesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-toolbar>
+        <button ion-button menuToggle>
+            <ion-icon color="primary" name="menu"></ion-icon>
+        </button>
+        <ion-title>Score HEMORR<sub>2</sub>HAGES</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+	
+	<form (ngSubmit)="display();">
+    	
+        <ion-list no-lines>
+			
+			<ion-item>
+				<ion-label color="dark">Maladie rénale ou hépatique</ion-label>
+				<ion-toggle color="secondary" name="renalOrLiver" [(ngModel)]="renalOrLiver"></ion-toggle>
+			</ion-item>
+			
+			<ion-item>
+				<ion-label color="dark">Ethylisme chronique</ion-label>
+				<ion-toggle color="secondary" name="alcohol" [(ngModel)]="alcohol"></ion-toggle>
+			</ion-item>
+			
+			<ion-item>
+				<ion-label color="dark">Cancer actif</ion-label>
+				<ion-toggle color="secondary" name="cancer" [(ngModel)]="cancer"></ion-toggle>
+			</ion-item>
+			
+			<ion-item>
+				<ion-label color="dark">Age > 75 ans</ion-label>
+				<ion-toggle color="secondary" name="ageOver75" [(ngModel)]="ageOver75"></ion-toggle>
+			</ion-item>
+			
+			<ion-item>
+				<ion-label color="dark">Thrombopénie / pathie</ion-label>
+                <button ion-button item-end clear (click)="item_help('thrombopenia'); false;">
+                    <ion-icon name='help-circle'></ion-icon>
+                </button>
+				<ion-toggle color="secondary" name="thrombopenia" [(ngModel)]="thrombopenia"></ion-toggle>
+			</ion-item>
+			
+			<ion-item>
+				<ion-label color="dark">Antécédent hémorragique</ion-label>
+				<ion-toggle color="secondary" name="bleeding" [(ngModel)]="bleeding"></ion-toggle>
+			</ion-item>
+			
+			<ion-item>
+				<ion-label color="dark">HTA non contrôlée</ion-label>
+				<ion-toggle color="secondary" name="hypertension" [(ngModel)]="hypertension"></ion-toggle>
+			</ion-item>
+			
+			<ion-item>
+				<ion-label color="dark">Anémie</ion-label>
+				<ion-toggle color="secondary" name="anemia" [(ngModel)]="anemia"></ion-toggle>
+			</ion-item>
+			
+			<ion-item>
+				<ion-label color="dark">Facteurs génétiques</ion-label>
+                <button ion-button item-end clear (click)="item_help('genetics'); false;">
+                    <ion-icon name='help-circle'></ion-icon>
+                </button>
+				<ion-toggle color="secondary" name="genetics" [(ngModel)]="genetics"></ion-toggle>
+			</ion-item>
+			
+			<ion-item>
+				<ion-label color="dark">Risque de chute</ion-label>
+                <button ion-button item-end clear (click)="item_help('fallrisk'); false;">
+                    <ion-icon name='help-circle'></ion-icon>
+                </button>
+				<ion-toggle color="secondary" name="fallrisk" [(ngModel)]="fallrisk"></ion-toggle>
+			</ion-item>
+			
+			<ion-item>
+				<ion-label color="dark">Antécédent d'AVC</ion-label>
+				<ion-toggle color="secondary" name="stroke" [(ngModel)]="stroke"></ion-toggle>
+			</ion-item>
+			
+		</ion-list>
+        
+        <button ion-button type="submit">CALCULER</button>
+		
+	</form>
+    
+    <div id="item_description">
+        
+        <p>
+            Le score HEMORR<sub>2</sub>HAGES permet d'estimer le risque hémorragique d'un patient en fibrillation atriale sous traitement anticoagulant par Warfarine.
+        </p>
+		<p id="item_source">
+		    Source :
+		    <a href="https://doi.org/10.1016/j.ahj.2005.04.017">
+		        Clinical classification schemes for predicting hemorrhage: results from the National Registry of Atrial Fibrillation (NRAF).
+		        Gage BF, et al. Am Heart Journal, 2006;151(3):713-9.
+		    </a>
+		</p>
+		<p id="item_source">
+		    Validation :
+		    <a href="https://doi.org/10.1016/j.jacc.2012.06.019">
+		        Performance of the HEMORR2HAGES, ATRIA, and HAS-BLED bleeding risk–prediction scores in patients with atrial fibrillation undergoing anticoagulation.
+		        Apostolakis S, et al. J Am Coll Cardiol, 2012;60(9):861-7.
+		    </a>
+		</p>
+        
+    </div>
+	
+</ion-content>

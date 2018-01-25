@@ -1,0 +1,17 @@
+page-convert {
+	
+	ion-item
+	{
+		margin-left: 5% !important;
+		width: 95% !important;
+	}
+	
+	.menu-list-header { margin-bottom: 10px !important; }
+	
+	.menu-list { margin-bottom: 10px; }
+	
+	.list-md>.item-block:last-child {
+		border-bottom: none;
+	}
+	
+}

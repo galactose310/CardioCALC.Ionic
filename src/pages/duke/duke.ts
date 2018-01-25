@@ -43,10 +43,10 @@ export class DukePage extends Score {
             { item: "anapathLesion", title: "Lésions histologiques", desc: "Végétation ou abcès intracardiaque montrant une endocardite active à l'examen histologique." },
             
             // Micro-organism description
-            { item: "typicalMicroOrganism", title: "Micro-organismes typiques", desc: "Sur au moins 2 hémocultures : Streptococcus viridans ou gallolyticus (bovis), groupe HACEK, Staphylococcus aureus ou Enterococcus en absence de foyer infectieux primitif." },
-            { item: "coherentMicroOrganism", title: "Micro-organismes cohérents", desc: "Bactériémie persistante à micro-organisme compatible avec une EI : au moins 2 hémocultures espacées de > 12h, ou 3/3 hémocultures positives, ou la majorité si > 4 prélèvements (avec > 1h entre le premier et le dernier prélèvement)." },
+            { item: "typicalMicroOrganism", title: "Germes typiques", desc: "Sur au moins 2 hémocultures : Streptococcus viridans ou gallolyticus (bovis), groupe HACEK, Staphylococcus aureus ou Enterococcus en absence de foyer infectieux primitif." },
+            { item: "coherentMicroOrganism", title: "Germes cohérents", desc: "Bactériémie persistante à micro-organisme compatible avec une EI : au moins 2 hémocultures espacées de > 12h, ou 3/3 hémocultures positives, ou la majorité si > 4 prélèvements (avec > 1h entre le premier et le dernier prélèvement)." },
             { item: "coxiella", title: "Coxiella burnetii", desc: "Au moins 1 hémoculture positive pour Coxiella burnetii, ou titre des IgG phase I > 1:800." },
-            { item: "othermicro", title: "Autres micro-organismes", desc: "Le critère majeur pour les hémocultures n'est pas atteint. Compte pour le critère mineur <em>Preuves microbiologiques</em>." },
+            { item: "othermicro", title: "Autres germes", desc: "Le critère majeur pour les hémocultures n'est pas atteint. Compte pour le critère mineur <em>Preuves microbiologiques</em>." },
             
             // Imaging description
             { item: "echocardiography", title: "Echocardiographie", desc: "Végétation, ou abcès / pseudoanévrysme / fistule intracardiaque, ou perforation / anévrysme valvulaire, ou nouvelles déhiscence de prothèse valvulaire." },
@@ -68,7 +68,7 @@ export class DukePage extends Score {
         if (this.anapathLesion || this.anapathMicroorganism) this.pathologicalCriteria = true;
         else this.pathologicalCriteria = false;
     }
-    
+	
     // Calculate the score
     calculate (): boolean
     {
@@ -78,6 +78,9 @@ export class DukePage extends Score {
         else if (this.positiveImaging && this.imaging == null)
             this.alert("Erreur", "Sélectionnez l'examen d'imagerie ayant amené à la suspicion diagnostique.", "toast");
         
+		else if (this.positiveBloodCultures && this.minorMicroorganism)
+			this.alert("Attention", "Les hémoculures positives ne peuvent pas constituer à la fois un critère majeur et un critère mineur", "toast");
+		
         else
         {
             this.majorDukeCriteria = this.criteriaCalc([this.positiveBloodCultures, this.positiveImaging]);

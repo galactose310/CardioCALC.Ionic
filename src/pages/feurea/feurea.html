@@ -1,0 +1,66 @@
+<!--
+  Generated template for the FeureaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-toolbar>
+        <button ion-button menuToggle>
+            <ion-icon color="primary" name="menu"></ion-icon>
+        </button>
+        <ion-title>Fraction d'excrétion urée</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+	
+	<form (ngSubmit)="display();">
+        
+        <ion-list no-lines>
+			
+			<ion-item>
+				<ion-label color="dark">Urée plasmatique</ion-label>
+				<ion-input type="number" placeholder="0" name="ureaPlasma" [(ngModel)]="ureaPlasma"></ion-input>
+			</ion-item>
+			
+			<ion-item>
+				<ion-label color="dark">Créatinine plasmatique</ion-label>
+				<ion-input type="number" placeholder="0" name="creatininePlasma" [(ngModel)]="creatininePlasma"></ion-input>
+			</ion-item>
+			
+			<ion-item>
+				<ion-label color="dark">Urée urinaire</ion-label>
+				<ion-input type="number" placeholder="0" name="ureaUrine" [(ngModel)]="ureaUrine"></ion-input>
+			</ion-item>
+			
+			<ion-item>
+				<ion-label color="dark">Créatinine urinaire</ion-label>
+				<ion-input type="number" placeholder="0" name="creatinineUrine" [(ngModel)]="creatinineUrine"></ion-input>
+			</ion-item>
+			
+		</ion-list>
+        
+        <button ion-button type="submit">CALCULER</button>
+		
+	</form>
+    
+    <div id="item_description">
+		
+		<p>
+			Note : l'urée et la créatinine peuvent être exprimées dans des unités différentes, mais chaque composante urinaire et plasmatique doit être exprimée dans la même unité.
+		</p>
+        <p>
+            La fraction d'excrétion de l'urée permet d'apprécier le mécanisme d'une insuffisance rénale aiguë avec une meilleure concordance que la fraction excrétée de sodium ou les autres méthodes. Elle est la seule méthode fiable en cas de traitement diurétique.
+        </p>
+        <p id="item_source">
+            Source :
+            <a href="https://doi.org/10.1046/j.1523-1755.2002.00683.x">
+                Significance of the fractional excretion of urea in the differential diagnosis of acute renal failure.
+                Carvounis CP, et al. Kidney International, 2002;62(6):2223-9.
+            </a>
+        </p>
+        
+    </div>
+	
+</ion-content>
