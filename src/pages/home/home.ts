@@ -21,7 +21,11 @@ import { HemorrhagesPage } from '../hemorrhages/hemorrhages';
 import { FeureaPage } from '../feurea/feurea';
 import { AmyloidosisPage } from '../amyloidosis/amyloidosis';
 import { TachycardiaPage } from '../tachycardia/tachycardia';
-//import { GracePage } from '../grace/grace';
+import { QualifyPage } from '../qualify/qualify';
+import { DiastolePage } from '../diastole/diastole';
+import { ConstrictionPage } from '../constriction/constriction';
+import { PhdiagnosisPage } from '../phdiagnosis/phdiagnosis';
+import { SyncopePage } from '../syncope/syncope';
 
 /**
  * Generated class for the HomePage page.
@@ -36,8 +40,12 @@ import { TachycardiaPage } from '../tachycardia/tachycardia';
 })
 
 export class HomePage {
-
-    scores: Array<{title: string, component: any}>;
+	
+	rythmology_scores: Array<{title: string, component: any}>;
+    heartFailure_scores: Array<{title: string, component: any}>;
+    surgery_scores: Array<{title: string, component: any}>;
+    embolism_scores: Array<{title: string, component: any}>;
+    infection_scores: Array<{title: string, component: any}>;
     calculs: Array<{title: string, component: any}>;
     aboutPage = { component: AboutPage }
     items: Array<string>;
@@ -55,27 +63,40 @@ export class HomePage {
     initializeItems(): void
     {
         // used for an example of ngFor and navigation
-        this.scores = [
-            { title: 'Amylose cardiaque', component: AmyloidosisPage },
+		this.rythmology_scores = [
+			{ title: 'Canadian Syncope Risk', component: SyncopePage },
 			{ title: 'CHA2DS2-VASc', component: ChadsvascPage },
-            { title: 'Genève', component: GenevaPage },
             { title: 'HAS-BLED', component: HasbledPage },
             { title: 'HCM Risk-SCD', component: HcmsuddeathPage },
 			{ title: 'HEMORR2HAGES', component: HemorrhagesPage },
-            { title: 'PESI', component: PesiPage },
+            { title: 'QT corrigé', component: QtintervalPage },
+			{ title: 'Ventricular Tachycardia', component: TachycardiaPage }
+		];
+        this.heartFailure_scores = [
+            { title: 'Amylose cardiaque', component: AmyloidosisPage },
+			{ title: 'Constriction / Restriction', component: ConstrictionPage },
+			{ title: 'Fonction diastolique', component: DiastolePage },
+            { title: 'Hémodynamique', component: RightcathPage },
             { title: 'PH-HFpEF Group', component: BerthelotPage },
-            { title: 'STS', component: StsPage },
-			{ title: 'Ventricular Tachycardia', component: TachycardiaPage },
+			{ title: 'Probabilité d\'HTAP', component: PhdiagnosisPage },
+			{ title: 'QUALIFY', component: QualifyPage }
+        ];
+        this.surgery_scores = [
+            { title: 'STS', component: StsPage }
+        ];
+        this.embolism_scores = [
+            { title: 'Genève', component: GenevaPage },
+            { title: 'PESI', component: PesiPage },
             { title: 'Wells', component: WellsPage }
+        ];
+        this.infection_scores = [
+			{ title: 'Critères de Duke', component: DukePage }
         ];
         this.calculs = [
             { title: 'Clairance de la créatinine', component: ClearancePage },
   		  	{ title: 'Conversions d\'unités', component: ConvertPage },
-            { title: 'Critères de Duke', component: DukePage },
             { title: 'Fraction d\'excrétion urée', component: FeureaPage },
-            { title: 'Hémodynamique', component: RightcathPage },
             { title: 'IMC & Poids idéal', component: BmiPage },
-            { title: 'QT corrigé', component: QtintervalPage },
             { title: 'Surface corporelle', component: BodysurfacePage }
         ];
     }
@@ -88,8 +109,20 @@ export class HomePage {
         // if the value is an empty string don't filter the items
         if (ev.target.value && ev.target.value.trim() != '')
         {
-            this.scores = this.scores.filter((score) => {
-            return (score.title.toLowerCase().indexOf(ev.target.value.toLowerCase()) > -1);
+            this.rythmology_scores = this.rythmology_scores.filter((rythmology_score) => {
+            return (rythmology_score.title.toLowerCase().indexOf(ev.target.value.toLowerCase()) > -1);
+            })
+            this.heartFailure_scores = this.heartFailure_scores.filter((heartFailure_score) => {
+            return (heartFailure_score.title.toLowerCase().indexOf(ev.target.value.toLowerCase()) > -1);
+            })
+            this.surgery_scores = this.surgery_scores.filter((surgery_score) => {
+            return (surgery_score.title.toLowerCase().indexOf(ev.target.value.toLowerCase()) > -1);
+            })
+            this.embolism_scores = this.embolism_scores.filter((embolism_score) => {
+            return (embolism_score.title.toLowerCase().indexOf(ev.target.value.toLowerCase()) > -1);
+            })
+            this.infection_scores = this.infection_scores.filter((infection_score) => {
+            return (infection_score.title.toLowerCase().indexOf(ev.target.value.toLowerCase()) > -1);
             })
             this.calculs = this.calculs.filter((calcul) => {
             return (calcul.title.toLowerCase().indexOf(ev.target.value.toLowerCase()) > -1);

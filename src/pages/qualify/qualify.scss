@@ -1,0 +1,29 @@
+page-qualify {
+	
+	ion-select {
+		color: #c8c8c8;
+		min-width: 60% !important;
+		max-width: 60% !important;
+		width: 60% !important;
+	}
+	
+	ion-item>ion-icon {
+		margin: 0 !important;
+		margin-right: 0 !important;
+		padding: 0 !important;
+	}
+	
+    ion-item, button[type="submit"] {
+        margin-left: 5% !important;
+    }
+	
+    ion-item {
+        width: 90% !important;
+    }
+    
+    #item_description {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+	
+}

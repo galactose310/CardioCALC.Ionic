@@ -14,18 +14,49 @@
     </ion-header>
     
     <ion-content>
-        <ion-list class="menu-list">
-            <ion-list-header mode="ios" class="menu-list-header">Scores</ion-list-header>
-            <button menuClose ion-item *ngFor="let score of scores" (click)="openPage(score)">
-                {{score.title}}
-            </button>
-        </ion-list>
-        <ion-list class="menu-list">
-            <ion-list-header mode="ios" class="menu-list-header">Calculs</ion-list-header>
-            <button menuClose ion-item *ngFor="let calcul of calculs" (click)="openPage(calcul)">
-                {{calcul.title}}
-            </button>
-        </ion-list>
+		
+		<ion-list class="menu-list">
+	        <ion-list-header mode="ios" class="menu-list-header">Rythmologie</ion-list-header>
+	        <button menuClose ion-item *ngFor="let rythmology_score of rythmology_scores" (click)="openPage(rythmology_score)">
+	            {{rythmology_score.title}}
+	        </button>
+	    </ion-list>
+		
+	    <ion-list class="menu-list">
+	        <ion-list-header mode="ios" class="menu-list-header">Insuffisance cardiaque & HTAP</ion-list-header>
+	        <button menuClose ion-item *ngFor="let heartFailure_score of heartFailure_scores" (click)="openPage(heartFailure_score)">
+	            {{heartFailure_score.title}}
+	        </button>
+	    </ion-list>
+		
+	    <ion-list class="menu-list">
+	        <ion-list-header mode="ios" class="menu-list-header">Chirurgie cardiaque</ion-list-header>
+	        <button menuClose ion-item *ngFor="let surgery_score of surgery_scores" (click)="openPage(surgery_score)">
+	            {{surgery_score.title}}
+	        </button>
+	    </ion-list>
+		
+	    <ion-list class="menu-list">
+	        <ion-list-header mode="ios" class="menu-list-header">Embolie pulmonaire</ion-list-header>
+	        <button menuClose ion-item *ngFor="let embolism_score of embolism_scores" (click)="openPage(embolism_score)">
+	            {{embolism_score.title}}
+	        </button>
+	    </ion-list>
+		
+	    <ion-list class="menu-list">
+	        <ion-list-header mode="ios" class="menu-list-header">Endocardite infectieuse</ion-list-header>
+	        <button menuClose ion-item *ngFor="let infection_score of infection_scores" (click)="openPage(infection_score)">
+	            {{infection_score.title}}
+	        </button>
+	    </ion-list>
+	    
+	    <ion-list class="menu-list">
+	        <ion-list-header mode="ios" class="menu-list-header">Calculs</ion-list-header>
+	        <button menuClose ion-item *ngFor="let calcul of calculs" (click)="openPage(calcul)">
+	            {{calcul.title}}
+	        </button>
+	    </ion-list>
+		
     </ion-content>
 
 </ion-menu>

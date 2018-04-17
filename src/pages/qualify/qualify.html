@@ -1,0 +1,143 @@
+<!--
+  Generated template for the QualifyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-toolbar>
+        <button ion-button menuToggle>
+            <ion-icon color="primary" name="menu"></ion-icon>
+        </button>
+        <ion-title>Score QUALIFY</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	
+	<form (ngSubmit)="display();">
+		
+		<ion-list no-lines>
+            <ion-list-header mode="ios" class="menu-list-header">Bêta-bloquants</ion-list-header>
+            <ion-item>
+                <ion-label color="dark">Prescrits</ion-label>
+				<ion-toggle color="secondary" name="betablocker" [(ngModel)]="betablocker" (ionChange)="betablocker_toggle();"></ion-toggle>
+            </ion-item>
+            <ion-item>
+                <ion-label color="dark">Dose maximale</ion-label>
+				<ion-toggle color="secondary" name="betablockerMaxDose" [(ngModel)]="betablockerMaxDose" (ionChange)="betablockerMaxDose_toggle();"></ion-toggle>
+            </ion-item>
+			<ion-item class="why" *ngIf="!betablocker || !betablockerMaxDose">
+				<ion-icon item-start color="primary" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+				<ion-label color="dark">Pourquoi ?</ion-label>
+				<ion-select interface="popover" name="betablockerReason" [(ngModel)]="betablockerReason">
+	                <ion-option value="none" selected>Non justifié</ion-option>
+	                <ion-option value="objective">Objectif atteint</ion-option>
+	                <ion-option value="bradycardia">Bradycardie</ion-option>
+	                <ion-option value="contraindicated">Contre-indiqué</ion-option>
+	            </ion-select>
+			</ion-item>
+        </ion-list>
+		
+		<ion-list no-lines>
+            <ion-list-header mode="ios" class="menu-list-header">IEC / ARA2 / Sacubitril</ion-list-header>
+            <ion-item>
+                <ion-label color="dark">Prescrits</ion-label>
+				<ion-toggle color="secondary" name="acei" [(ngModel)]="acei" (ionChange)="acei_toggle();"></ion-toggle>
+            </ion-item>
+			<ion-item>
+				<ion-label color="dark">Type</ion-label>
+				<ion-select interface="popover" name="sacubitril" [(ngModel)]="sacubitril">
+	                <ion-option [value]="false" selected>IEC ou ARA2</ion-option>
+	                <ion-option [value]="true">Sacubitril + Valsartan</ion-option>
+	            </ion-select>
+			</ion-item>
+            <ion-item>
+                <ion-label color="dark">Dose maximale</ion-label>
+				<ion-toggle color="secondary" name="aceiMaxDose" [(ngModel)]="aceiMaxDose" (ionChange)="aceiMaxDose_toggle();"></ion-toggle>
+            </ion-item>
+			<ion-item class="why" *ngIf="!acei || !aceiMaxDose">
+				<ion-icon item-start color="primary" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+				<ion-label color="dark">Pourquoi ?</ion-label>
+				<ion-select interface="popover" name="aceiReason" [(ngModel)]="aceiReason">
+	                <ion-option value="none" selected>Non justifié</ion-option>
+	                <ion-option value="hypotension">Hypotension</ion-option>
+	                <ion-option value="renalFailure">Insuff. rénale</ion-option>
+	                <ion-option value="hyperkaliemia">Hyperkaliémie</ion-option>
+	                <ion-option value="contraindicated">Contre-indiqué</ion-option>
+	            </ion-select>
+			</ion-item>
+        </ion-list>
+		
+		<ion-list no-lines>
+            <ion-list-header mode="ios" class="menu-list-header">Anti-aldostérones</ion-list-header>
+            <ion-item>
+                <ion-label color="dark">Prescrits</ion-label>
+				<ion-toggle color="secondary" name="mra" [(ngModel)]="mra" (ionChange)="mra_toggle();"></ion-toggle>
+            </ion-item>
+            <ion-item>
+                <ion-label color="dark">Dose maximale</ion-label>
+				<ion-toggle color="secondary" name="mraMaxDose" [(ngModel)]="mraMaxDose" (ionChange)="mraMaxDose_toggle();"></ion-toggle>
+            </ion-item>
+			<ion-item class="why" *ngIf="!mra || !mraMaxDose">
+				<ion-icon item-start color="primary" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+				<ion-label color="dark">Pourquoi ?</ion-label>
+				<ion-select interface="popover" name="mraReason" [(ngModel)]="mraReason">
+	                <ion-option value="none" selected>Non justifié</ion-option>
+	                <ion-option value="hyperkaliemia">Hyperkaliémie</ion-option>
+	                <ion-option value="bradycardia">Insuff. rénale</ion-option>
+	                <ion-option value="contraindicated">Contre-indiqué</ion-option>
+	            </ion-select>
+			</ion-item>
+        </ion-list>
+		
+		<ion-list no-lines>
+            <ion-list-header mode="ios" class="menu-list-header">Ivabradine</ion-list-header>
+            <ion-item>
+                <ion-label color="dark">Prescrits</ion-label>
+				<ion-toggle color="secondary" name="ivabradine" [(ngModel)]="ivabradine" (ionChange)="ivabradine_toggle();"></ion-toggle>
+            </ion-item>
+            <ion-item>
+                <ion-label color="dark">Dose maximale</ion-label>
+				<ion-toggle color="secondary" name="ivabradineMaxDose" [(ngModel)]="ivabradineMaxDose" (ionChange)="ivabradineMaxDose_toggle();"></ion-toggle>
+            </ion-item>
+			<ion-item class="why" *ngIf="!ivabradine || !ivabradineMaxDose">
+				<ion-icon item-start color="primary" ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+				<ion-label color="dark">Pourquoi ?</ion-label>
+				<ion-select interface="popover" name="ivabradineReason" [(ngModel)]="ivabradineReason">
+					<ion-option value="none" selected>Non justifié</ion-option>
+					<ion-option value="atrialFibrillation" selected>Arythmie</ion-option>
+					<ion-option value="objective">Objectif atteint</ion-option>
+					<ion-option value="bradycardia">Bradycardie</ion-option>
+					<ion-option value="contraindicated">Contre-indiqué</ion-option>
+				</ion-select>
+			</ion-item>
+        </ion-list>
+		
+        <button ion-button type="submit">CALCULER</button>
+		
+	</form>
+    
+    <div id="item_description">
+        
+        <p>
+            Le score QUALIFY évalue la qualité de la prescription médicamenteuse par rapport aux recommandations internationales en cas d'insuffisance cardiaque chronique à FEVG altérée.
+        </p>
+        <p id="item_source">
+            Source :
+            <a href="http://dx.doi.org/10.1002/ejhf.510">
+				Physicians’ adherence to guideline recommended medications in heart failure with reduced ejection fraction: data from the QUALIFY global survey.
+                Komajda M, et al. European Journal of Heart Failure, 2016;18:514–522.
+            </a>
+        </p>
+		<p id="item_source">
+		    Recommandations :
+		    <a href="https://doi.org/10.1093/eurheartj/ehw128">
+		        2016 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure.
+		        Ponikowski P, et al. European Heart Journal, 2016;37(27):2129-2200.
+		    </a>
+		</p>
+        
+    </div>
+	
+</ion-content>

@@ -26,7 +26,11 @@ import { HemorrhagesPage } from '../pages/hemorrhages/hemorrhages';
 import { FeureaPage } from '../pages/feurea/feurea';
 import { AmyloidosisPage } from '../pages/amyloidosis/amyloidosis';
 import { TachycardiaPage } from '../pages/tachycardia/tachycardia';
-//import { GracePage } from '../pages/grace/grace';
+import { QualifyPage } from '../pages/qualify/qualify';
+import { DiastolePage } from '../pages/diastole/diastole';
+import { ConstrictionPage } from '../pages/constriction/constriction';
+import { PhdiagnosisPage } from '../pages/phdiagnosis/phdiagnosis';
+import { SyncopePage } from '../pages/syncope/syncope';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -55,8 +59,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 	HemorrhagesPage,
 	FeureaPage,
 	AmyloidosisPage,
-	//GracePage,
-	TachycardiaPage
+	TachycardiaPage,
+	QualifyPage,
+	DiastolePage,
+	ConstrictionPage,
+	PhdiagnosisPage,
+	SyncopePage
   ],
   imports: [
     BrowserModule,
@@ -86,8 +94,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 	HemorrhagesPage,
 	FeureaPage,
 	AmyloidosisPage,
-	//GracePage,
-	TachycardiaPage
+	TachycardiaPage,
+	QualifyPage,
+	DiastolePage,
+	ConstrictionPage,
+	PhdiagnosisPage,
+	SyncopePage
   ],
   providers: [
       SplashScreen,
